@@ -1,0 +1,71 @@
+.blurred-circle {
+    background-color: #fbe2e3;
+    position: absolute;
+    top: -6rem;
+    z-index: -10;
+    right: 11rem;
+    height: 31.25rem;
+    width: 31.25rem;
+    border-radius: 9999px;
+    filter: blur(10rem);
+}
+
+@media (min-width: 640px) {
+    .blurred-circle {
+        width: 68.75rem;
+    }
+}
+
+/* @media (prefers-color-scheme: dark) {
+    .blurred-circle {
+        background-color: #946263;
+    }
+} */
+
+.decorative-circle {
+    background-color: #dbd7fb;
+    position: absolute;
+    top: -1rem;
+    z-index: -10;
+    left: -35rem;
+    height: 31.25rem;
+    width: 50rem;
+    border-radius: 9999px;
+    filter: blur(10rem);
+}
+
+@media (min-width: 640px) {
+    .decorative-circle {
+        width: 68.75rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .decorative-circle {
+        left: -33rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .decorative-circle {
+        left: -28rem;
+    }
+}
+
+@media (min-width: 1280px) {
+    .decorative-circle {
+        left: -15rem;
+    }
+}
+
+@media (min-width: 1536px) {
+    .decorative-circle {
+        left: -5rem;
+    }
+}
+
+/* @media (prefers-color-scheme: dark) {
+    .decorative-circle {
+        background-color: #676394;
+    }
+} */

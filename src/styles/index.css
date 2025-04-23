@@ -1,0 +1,14 @@
+/* @import url('https://fonts.cdnfonts.com/css/lufga'); */
+@import "tailwindcss";
+@import "./utilities.css";
+
+@font-face {
+    font-family: 'Lufga';
+    src: url('https://fonts.cdnfonts.com/s/67775/LufgaRegular.woff') format('woff');
+    font-display: swap;
+}
+
+body {
+    /* background-color: rgb(17 24 39/1); */
+    font-family: 'Lufga', sans-serif;
+}
