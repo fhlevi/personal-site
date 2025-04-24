@@ -2,6 +2,8 @@
 import { Container } from "@components/common/container";
 import { ProjectCard } from "@components/project-card";
 
+import NetflixImg from "@assets/images/netflix.png";
+
 
 export const ProjectsSection = () => {
     return (
@@ -19,8 +21,14 @@ export const ProjectsSection = () => {
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-6 mt-[50px]">
-                        <ProjectCard />
-                        <ProjectCard />
+                        <ProjectCard 
+                            name="Project Name" 
+                            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Duis lacus nunc, posuere in justo vulputate, bibendum sodales
+                            ligula. Donec in nunc id enim efficitur facilisis.
+                            ligula. Donec in nunc id enim efficitur facilisis."
+                            image={NetflixImg}
+                        />
                     </div>
                 </div>
             </Container>

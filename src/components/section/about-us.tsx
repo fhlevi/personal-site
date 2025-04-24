@@ -2,7 +2,12 @@ import { Container } from "@components/common/container";
 
 import ProfileImg from "@assets/images/profiles-picture.jpg";
 
-export const AboutUsSection = () => {
+interface AboutUsProps {
+    description: string;
+    stats: { value: string; label: string }[];
+}
+
+export const AboutUsSection = ({ description, stats }: AboutUsProps) => {
     return (
         <section id="about-us" className="relative mt-36">
             <Container>
@@ -18,18 +23,15 @@ export const AboutUsSection = () => {
                             Why <span className="text-orange-400">Hire me</span>?
                         </div>
                         <div className="text-[1.25rem] w-[27.75rem] text-[#344054]">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                            Duis lacus nunc, posuere in justo vulputate, bibendum sodales 
+                            {description}
                         </div>
                         <div className="flex flex-row space-x-[10px]">
-                            <div className="space-y-[10px] w-full">
-                                <div className="text-4xl font-medium">450+</div>
-                                <div className="text-xl text-gray-400">Project Completed</div>
-                            </div>
-                            <div className="space-y-[10px] w-full">
-                                <div className="text-4xl font-medium">450+</div>
-                                <div className="text-xl text-gray-400">Project Completed</div>
-                            </div>
+                            {stats.map((stat, index) => (
+                                <div key={index} className="space-y-[10px] w-full">
+                                    <div className="text-4xl font-medium">{stat.value}</div>
+                                    <div className="text-xl text-gray-400">{stat.label}</div>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>

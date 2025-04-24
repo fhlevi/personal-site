@@ -1,15 +1,13 @@
-import { Container } from "@components/common/container";
-import clsx from "clsx";
 import React from "react";
-import { EXPERIENCE } from "src/constants/profiles";
-import { IExperienceList, RoundSchema } from "src/types/experience";
+import clsx from "clsx";
+import { Container } from "@components/common/container";
+import { IExperienceList, RoundSchema } from "@type/experience";
 
-export const ExperienceSection = () => {
-    const [experience, setExperience] = React.useState<IExperienceList>([]);
+interface ExperienceSectionProps {
+    experience: IExperienceList;
+}
 
-    React.useEffect(() => {
-        setExperience(EXPERIENCE);
-    }, []);
+export const ExperienceSection: React.FC<ExperienceSectionProps> = ({ experience }) => {
     return (
         <section id="experience">
             <Container>
