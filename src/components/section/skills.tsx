@@ -7,7 +7,7 @@ interface SkillsSectionProps {
 
 export const SkillsSection = ({ skills }: SkillsSectionProps) => {
     return (
-        <section id="skills" className="relative pb-24">
+        <section id="skills" className="relative pt-12">
             <Container>
                 <div className="container flex flex-col space-y-12 items-center justify-center">
                     <div className="flex flex-row gap-6 max-w-[947px] flex-wrap w-full items-center justify-center">

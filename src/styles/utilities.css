@@ -15,6 +15,14 @@
     border-radius: 4.5rem;
 }
 
+/* height */
+@utility h-800 {
+    border-radius: 50rem;
+}
+@utility h-860 {
+    border-radius: 54rem;
+}
+
 
 /* text */
 @utility text-1.5xl {

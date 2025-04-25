@@ -13,7 +13,7 @@ export const ContactSection = ({
     ContactInputComponent = ContactInput,
 }: ContactSectionProps) => {
     return (
-        <section id="contact" className="relative pt-24 pb-12">
+        <section id="contact" className="pt-34 pb-12">
             <Container>
                 <div className="container">
                     <div className="flex flex-col items-center justify-center space-y-2.5">

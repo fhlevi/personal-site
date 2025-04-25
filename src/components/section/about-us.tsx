@@ -9,7 +9,7 @@ interface AboutUsProps {
 
 export const AboutUsSection = ({ description, stats }: AboutUsProps) => {
     return (
-        <section id="about-us" className="relative mt-36">
+        <section id="about-us" className="relative pt-14 pb-10">
             <Container>
                 <div className="container grid grid-cols-2 items-center py-[7.63rem] px-[4.44rem] bg-[#F2F4F7] min-h-44 rounded-[3.13rem]">
                     <img 
@@ -22,7 +22,7 @@ export const AboutUsSection = ({ description, stats }: AboutUsProps) => {
                         <div className="text-[4rem] font-semibold">
                             Why <span className="text-orange-400">Hire me</span>?
                         </div>
-                        <div className="text-[1.25rem] w-[27.75rem] text-[#344054]">
+                        <div className="text-[1.25rem] w-[27.75rem] text-[#98A2B3]">
                             {description}
                         </div>
                         <div className="flex flex-row space-x-[10px]">

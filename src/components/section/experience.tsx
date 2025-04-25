@@ -9,7 +9,7 @@ interface ExperienceSectionProps {
 
 export const ExperienceSection: React.FC<ExperienceSectionProps> = ({ experience }) => {
     return (
-        <section id="experience">
+        <section id="experience" className="pb-22">
             <Container>
                 <div className="container mx-auto px-6">
                     <h2 className="text-6xl font-medium text-center my-[85px]">

@@ -8,6 +8,10 @@
     font-display: swap;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     /* background-color: rgb(17 24 39/1); */
     font-family: 'Lufga', sans-serif;
