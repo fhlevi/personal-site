@@ -2,9 +2,6 @@
 import { Container } from "@components/common/container";
 import { ProjectCard } from "@components/project-card";
 
-import NetflixImg from "@assets/images/netflix.png";
-
-
 export const ProjectsSection = () => {
     return (
         <section id="projects" className="relative py-14">
