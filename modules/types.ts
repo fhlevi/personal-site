@@ -5,7 +5,7 @@ export type ExperienceSchema = {
     position: string;
     date: string;
     description: string;
-    color: string;
+    color?: string;
 };
 
 export type RoundSchema = {
