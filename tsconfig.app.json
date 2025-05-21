@@ -25,14 +25,14 @@
     /* Alias configuration */
     "baseUrl": ".", // Root of the project
     "paths": {
-      "@components/*": ["src/components/*"],
-      "@utils/*": ["src/utils/*"],
-      "@styles/*": ["src/styles/*"],
-      "@assets/*": ["src/assets/*"],
-      "@hook/*": ["src/hooks/*"],
-      "@type/*": ["src/types/*"],
-      "@constant/*": ["src/constants/*"],
+      "@components/*": ["components/*"],
+      "@utils/*": ["utils/*"],
+      "@styles/*": ["styles/*"],
+      "@assets/*": ["assets/*"],
+      "@hook/*": ["hooks/*"],
+      "@modules/*": ["modules/*"],
+      "@constants/*": ["constants/*"],
     }
   },
-  "include": ["src"]
+  "include": ["src", "@types", "utils", "main.tsx", "vite-env.d.ts", "components", "constants", "hooks", "pages"]
 }

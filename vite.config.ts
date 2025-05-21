@@ -8,7 +8,7 @@ import compression from 'vite-plugin-compression';
 // https://vite.dev/config/
 export default defineConfig({
   server: {
-    port: 5173,
+    port: 3000,
   },
   build: {
     rollupOptions: {
