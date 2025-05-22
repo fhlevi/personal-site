@@ -10,8 +10,6 @@ import { Footer } from '@components/footer/footer';
 import { useExperience } from "@hook/use-experience";
 import { SKILLS } from '@constants/skills';
 import { ABOUT } from '@constants/profiles';
-import { Helmet } from 'react-helmet-async';
-import ProfilePicture from '@assets/images/profiles-picture.jpg';
 
 function App() {
   const experience = useExperience();
@@ -19,11 +17,6 @@ function App() {
 
   return (
     <main className="flex flex-col">
-      <Helmet>
-        <link rel="icon" type="image/svg+xml" href={ProfilePicture} />
-        <title>Faisal Fahlevi | Personal Portfolio</title>
-      </Helmet>
-
       <Navigation />
       <Banner />
       <ExperienceSection experience={experience} />
