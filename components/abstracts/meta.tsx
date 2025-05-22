@@ -12,6 +12,7 @@ const MetaComponent = () => {
             <Meta property="og:description" content="Explore projects, skills, and contact information of Faisal Fahlevi." />
             <Meta property="og:type" content="website" />
             <Meta property="og:url" content="https://www.linkedin.com/in/fhlevi" />
+            <Meta name="google-site-verification" content="ZTqx8VcHrbTxB9NxkysmwYoEZlqFfELpuffUWlo3GHo" />
         </>
     )
 }
