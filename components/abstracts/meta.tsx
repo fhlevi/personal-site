@@ -3,6 +3,7 @@ import { Meta } from 'react-head';
 const MetaComponent = () => {
     return (
         <>
+            <Meta name="google-site-verification" content="ZTqx8VcHrbTxB9NxkysmwYoEZlqFfELpuffUWlo3GHo" />
             <Meta name="description" content="Personal portfolio website of Faisal Fahlevi, Frontend Developer focusing on React, Vite, and UI/UX design." />
             <Meta name="keywords" content="Faisal Fahlevi, Frontend Developer, React, Vite, JavaScript, Portfolio, UI/UX" />
             <Meta name="author" content="Faisal Fahlevi" />
@@ -12,7 +13,6 @@ const MetaComponent = () => {
             <Meta property="og:description" content="Explore projects, skills, and contact information of Faisal Fahlevi." />
             <Meta property="og:type" content="website" />
             <Meta property="og:url" content="https://www.linkedin.com/in/fhlevi" />
-            <Meta name="google-site-verification" content="ZTqx8VcHrbTxB9NxkysmwYoEZlqFfELpuffUWlo3GHo" />
         </>
     )
 }

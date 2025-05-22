@@ -4,8 +4,8 @@ import Title from "./title"
 const BaseComponent = () => {
     return (
         <>
-            <Meta />
             <Title />
+            <Meta />
         </>
     )
 }
