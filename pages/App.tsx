@@ -10,13 +10,14 @@ import { Footer } from '@components/footer/footer';
 import { useExperience } from "@hook/use-experience";
 import { SKILLS } from '@constants/skills';
 import { ABOUT } from '@constants/profiles';
+import MainLayout from '@components/main-layout';
 
 function App() {
   const experience = useExperience();
   const aboutUs = ABOUT;
 
   return (
-    <main className="flex flex-col">
+    <MainLayout>
       <Navigation />
       <Banner />
       <ExperienceSection experience={experience} />
@@ -25,7 +26,7 @@ function App() {
       <SkillsSection skills={SKILLS} />
       <ContactSection />
       <Footer />
-    </main>
+    </MainLayout>
   )
 }
 

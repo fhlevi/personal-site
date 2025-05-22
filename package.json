@@ -25,6 +25,7 @@
     "postcss": "^8.5.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-head": "^3.4.2",
     "react-scroll": "^1.9.3",
     "tailwind-merge": "^3.3.0",
     "tailwindcss": "^4.1.4",
