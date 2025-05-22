@@ -19,7 +19,7 @@ export const Footer = () => {
                     <div className="py-14 flex flex-row items-start justify-between">
                         <div className="w-[calc(var(--container-2xl)-37px)] pt-[calc(var(--spacing)*20)] flex flex-col space-y-7">
                             <p className="text-xl text-white">
-                                Levi expertise in web development and attention to detail have significantly enhanced our platform's performance and user experience. Highly recommended
+                                Faisal Fahlevi expertise in web development and attention to detail have significantly enhanced our platform's performance and user experience. Highly recommended
                             </p>
                             <SocialNetwork socialList={socialList} onOpenLink={openLink} />
                         </div>

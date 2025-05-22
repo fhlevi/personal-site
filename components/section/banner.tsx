@@ -28,10 +28,10 @@ export const Banner = () => {
                         <div className="relative min-h-[52rem] h-full">
                             <div className="absolute top-14 flex flex-col items-center w-full">
                                 <div className="px-6 py-3 border border-black rounded-full w-fit">Hello!</div>
-                                <h1 className="text-[95px] lg:w-4xl text-center font-semibold leading-24 mt-5">I'm <span className="text-orange-400">Levi</span>, <br />Frontend Engineer</h1>
+                                <h1 className="text-[95px] lg:w-4xl text-center font-semibold leading-24 mt-5">I'm <span className="text-orange-400">Faisal Fahlevi</span>, <br />Frontend Engineer</h1>
                             </div>
                             <div className="w-full h-full absolute flex items-center justify-between">
-                                <Testimonial text="Levi expertise in web development and attention to detail have significantly enhanced our platform's performance and user experience. Highly recommended" />
+                                <Testimonial text="Faisal Fahlevi expertise in web development and attention to detail have significantly enhanced our platform's performance and user experience. Highly recommended" />
                                 <div className="flex flex-col space-y-5">
                                     <Rating stars={5} />
                                     <Experience years={5} />
