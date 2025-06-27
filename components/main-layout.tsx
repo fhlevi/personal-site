@@ -9,6 +9,8 @@ const MainLayout = ({ children }: MainLayoutProps) => {
     return (
         <main className="flex flex-col">
             <Base />
+            <div className="blurred-circle"></div>
+            <div className="decorative-circle"></div>
             {children}
         </main>
     )

@@ -21,14 +21,13 @@ A modern personal portfolio website built with **React**, **TypeScript**, and **
 personal-site/
 ├── public/                     # Static files (images, icons, etc.)
 │
-├── src/                        # Source code
-│   ├── components/             # Reusable UI components
-│   ├── pages/                  # Page-level components
-│   ├── hooks/                  # Custom React hooks
-│   ├── utils/                  # Utility functions and helpers
-│   ├── styles/                 # Global and component-specific styles
-│   ├── assets/                 # Static assets like images and fonts
-│   └── services/               # API calls and external service integrations
+├── components/             # Reusable UI components
+├── pages/                  # Page-level components
+├── hooks/                  # Custom React hooks
+├── utils/                  # Utility functions and helpers
+├── styles/                 # Global and component-specific styles
+├── assets/                 # Static assets like images and fonts
+├── services/               # API calls and external service integrations
 │
 ├── .env                        # Environment variables
 ├── vite.config.ts              # Vite configuration
@@ -46,7 +45,7 @@ This structure ensures a clear separation of concerns, making it easier to navig
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/personal-site.git
+git clone https://github.com/fhlevi/personal-site.git
 cd personal-site
 ```
 

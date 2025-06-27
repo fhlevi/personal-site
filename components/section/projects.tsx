@@ -11,10 +11,10 @@ export const ProjectsSection = () => {
             <Container>
                 <div className="container">
                     <div className="flex flex-row items-center justify-between">
-                        <div className="text-6xl font-semibold max-w-[643px] leading-20">
+                        <p className="text-5xl md:text-6xl font-semibold max-w-[643px] leading-16 md:leading-20">
                             Lets have a look at my&nbsp;
                             <span className="text-orange-400">Projects</span>
-                        </div>
+                        </p>
                         {/* <Button className="h-16 w-36 font-bold text-1.5xl" type="button">
                             See All
                         </Button> */}

@@ -3,14 +3,6 @@ import { Link } from "react-scroll";
 import { NavigationItemsProps } from "@modules/interfaces";
 import { motion } from "framer-motion";
 
-const ImageItem: React.FC<Record<string, string>> = ({ image }) => (
-    <img src={image} alt="avatar" className="avatar" />
-);
-
-const LabelItem: React.FC<Record<string, string>> = ({ name }) => (
-    <span className="nav-label">{name}</span>
-);
-
 export const NavigationItems: React.FC<NavigationItemsProps> = ({ 
     name,
     to = "#",
@@ -47,8 +39,8 @@ export const NavigationItems: React.FC<NavigationItemsProps> = ({
             spy
             offset={offset}
             onSetActive={onSetActive}>
-                {name && <LabelItem name={name} />}
-                {image && <ImageItem image={image} />}
+                {name && <span className="nav-label">{name}</span>}
+                {image && <img src={image} alt="avatar" className="avatar" />}
             </Link>
 
             {menuActive === to && (

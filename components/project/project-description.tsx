@@ -1,3 +1,4 @@
+import { useDevice } from '@hook/use-device';
 import { ProjectDescriptionProps } from '@modules/interfaces';
 import React, { useState } from 'react';
 
@@ -6,14 +7,16 @@ React.FC<ProjectDescriptionProps> = ({
     name, 
     description 
 }) => {
+    const { devices } = useDevice();
     const [isExpanded, setIsExpanded] = useState(false);
 
     const toggleReadMore = () => setIsExpanded(!isExpanded);
 
-    const isLongDescription = description.length > 150;
+    const maxLength = devices.mobile ? 70 : 150
+    const isLongDescription = description.length > maxLength;
     const displayedDescription = isExpanded || !isLongDescription 
         ? description 
-        : `${description.slice(0, 150)}...`;
+        : `${description.slice(0, maxLength)}...`;
 
     return (
         <div className="relative w-full rounded-3xl z-10 backdrop-blur-md bg-[#0000007f]">

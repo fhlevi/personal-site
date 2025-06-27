@@ -8,10 +8,10 @@ interface ContainerProps {
 
 export const Container = ({ 
     children, 
-    className = "container mx-auto px-4 sm:px-6 md:px-0"
+    className
 }: ContainerProps) => {
     return (
-        <div className={clsx(className)}>
+        <div className={clsx("container mx-auto px-4 sm:px-6", className)}>
             {children}
         </div>
     )

@@ -6,7 +6,7 @@ import { ContactSection } from '@components/section/contact';
 import { ExperienceSection } from '@components/section/experience';
 import { ProjectsSection } from '@components/section/projects';
 import { SkillsSection } from '@components/section/skills';
-import { Footer } from '@components/footer/footer';
+import { Footer } from '@components/footer/footer-main';
 import { useExperience } from "@hook/use-experience";
 import { SKILLS } from '@constants/skills';
 import { ABOUT } from '@constants/profiles';

@@ -7,7 +7,7 @@ export const SocialNetwork: React.FC<SocialNetworkProps> = ({
     onOpenLink 
 }) => {
     return (
-        <div className="w-full h-6 flex flex-row space-x-1.5">
+        <div className="w-full h-6 mt-7 lg:mt-0 flex flex-row space-x-1.5">
             {socialList.map((item) => (
                 <FontAwesomeIcon 
                     icon={item.icon} 

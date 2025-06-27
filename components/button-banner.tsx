@@ -29,9 +29,9 @@ export const ButtonBanner = ({
 
     return (
         <Button
-            className="relative px-5 py-2.5 w-full h-full rounded-6xl cursor-pointer"
-            onMouseMove={handleSetActive}
+            className="relative p-3 lg:p-5 w-full h-full rounded-6xl cursor-pointer"
             to={to}
+            onMouseMove={handleSetActive}
             onClick={onClick}>
             <p className={clsx("relative z-10 flex flex-row items-center justify-center", isActiveButton && 'text-white font-bold')}>
                 {children}

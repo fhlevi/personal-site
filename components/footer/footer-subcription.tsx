@@ -2,7 +2,7 @@ import { SendHorizontal } from 'lucide-react';
 
 export const FooterSubscription = () => {
     return (
-        <div className="max-w-[19rem] w-full space-y-7">
+        <div className="max-w-[19rem] w-full space-y-4 lg:space-y-7">
             <div className="text-xl font-semibold text-orange-400">Get the latest information</div>
             <div className="flex flex-row h-[3.19rem] w-full">
                 <input

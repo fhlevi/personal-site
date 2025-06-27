@@ -5,8 +5,6 @@
 }
 
 .nav {
-    min-width: calc(var(--container-xs) * 3);
-    border-radius: var(--rounded-50);
     /* background-color: rgb(3 7 18 / 0.75); */
     background-color: #171717;
 }

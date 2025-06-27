@@ -10,10 +10,10 @@ export const SkillsSection = ({ skills }: SkillsSectionProps) => {
         <section id="skills" className="relative pt-12">
             <Container>
                 <div className="container flex flex-col space-y-12 items-center justify-center">
-                    <div className="flex flex-row gap-6 max-w-[947px] flex-wrap w-full items-center justify-center">
+                    <div className="flex flex-row gap-2 md:gap-6 max-w-[947px] flex-wrap w-full items-center justify-center">
                         {skills.map((skill, index) => (
                             <Tag key={index}>
-                                <span className="text-xl">{skill}</span>
+                                {skill}
                             </Tag>
                         ))}
                     </div>

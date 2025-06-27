@@ -17,7 +17,7 @@ export const ContactSection = ({
             <Container>
                 <div className="container">
                     <div className="flex flex-col items-center justify-center space-y-2.5">
-                        <div className="text-6xl font-semibold max-w-[799px] text-center leading-20">
+                        <div className="text-5xl md:text-6xl font-semibold max-w-[799px] text-left md:text-center leading-16 md:leading-20">
                             {title}&nbsp;
                             <span className="text-orange-400">{highlight}</span>
                         </div>
