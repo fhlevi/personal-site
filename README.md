@@ -4,6 +4,12 @@ A modern personal portfolio website built with **React**, **TypeScript**, and **
 
 ---
 
+## 🔗 Demo
+
+Lihat aplikasi yang berjalan di: [faisalfahlevi.vercel.app](https://faisalfahlevi.vercel.app/)
+
+---
+
 ## 🚀 Features
 
 - ⚡ Built with Vite for fast development
