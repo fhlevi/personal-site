@@ -1,11 +1,10 @@
 import { Container } from "@components/common/container";
 import { Tag } from "@components/common/tag";
+import { useContens } from "@hook/use-contents";
 
-interface SkillsSectionProps {
-    skills: string[];
-}
-
-export const SkillsSection = ({ skills }: SkillsSectionProps) => {
+export const SkillsSection = () => {
+    const { skills } = useContens();
+    
     return (
         <section id="skills" className="relative pt-12">
             <Container>

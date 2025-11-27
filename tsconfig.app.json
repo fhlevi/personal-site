@@ -28,7 +28,6 @@
       "@components/*": ["components/*"],
       "@utils/*": ["utils/*"],
       "@styles/*": ["styles/*"],
-      "@assets/*": ["assets/*"],
       "@hook/*": ["hooks/*"],
       "@modules/*": ["modules/*"],
       "@constants/*": ["constants/*"],

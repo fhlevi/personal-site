@@ -1,24 +1,17 @@
-import { Container } from "@components/common/container";
+import React from 'react';
 import { Link } from "react-scroll";
 import { ArrowRight } from "lucide-react";
-import React, { useState } from 'react';
+import { Container } from "@components/common/container";
 import { useDevice } from "@hook/use-device";
+import { useContens } from "@hook/use-contents";
+import { useReadMore } from '@hook/use-readmore';
 
-interface AboutUsProps {
-    description: string;
-    stats: { value: string; label: string }[];
-}
-
-export const AboutUsSection: React.FC<AboutUsProps> = ({ description, stats }) => {
+export const AboutUsSection: React.FC = () => {
     const { devices } = useDevice();
-    const [isExpanded, setIsExpanded] = useState(false);
-    
-    const toggleReadMore = () => setIsExpanded(!isExpanded);
+    const { aboutUs } = useContens();
+    const { displayedText, isLongText, toggleExpand, isExpanded } = useReadMore(aboutUs.description);
 
-    const isLongDescription = description.length > 150;
-    const displayedDescription = isExpanded || !isLongDescription 
-        ? description 
-        : `${description.slice(0, 150)}...`;
+    const { description, stats } = aboutUs;
 
     return (
         <section id="about-us" className="relative pt-14 pb-10">
@@ -29,11 +22,11 @@ export const AboutUsSection: React.FC<AboutUsProps> = ({ description, stats }) =
                             Why <span className="text-orange-400">Hire me</span>?
                         </div>
                         <div className="text-[1.25rem] w-full text-[#98A2B3]">
-                            {devices.mobile ? displayedDescription : description}
-                            {isLongDescription && devices.mobile && (
+                            {devices.mobile ? displayedText : description}
+                            {isLongText && devices.mobile && (
                                 <span 
                                 className="text-orange-200 cursor-pointer ml-2"
-                                onClick={toggleReadMore}
+                                onClick={toggleExpand}
                                 >
                                     {isExpanded ? 'Read Less' : 'Read More'}
                                 </span>

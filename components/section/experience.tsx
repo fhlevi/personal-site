@@ -2,11 +2,12 @@ import React from "react";
 import clsx from "clsx";
 import { Container } from "@components/common/container";
 import { RoundSchema } from "@modules/types";
-import { ExperienceSectionProps } from "@modules/interfaces";
 import { useDevice } from "@hook/use-device";
+import { useContens } from "@hook/use-contents";
 
-export const ExperienceSection: React.FC<ExperienceSectionProps> = ({ experience }) => {
+export const ExperienceSection: React.FC = () => {
     const { devices } = useDevice();
+    const { experiences } = useContens();
 
     return (
         <section id="experience" className="pb-22">
@@ -16,7 +17,7 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({ experience
                         My <span className="text-[#FD853A]">Work Experience</span>
                     </h2>
                     <div className="flex flex-col space-y-12">
-                        {experience.map((item, index) => {
+                        {experiences.map((item, index) => {
                             const colorClass = index % 2 === 0 ? 'orange' : 'blue';
 
                             const round: RoundSchema = {
@@ -32,7 +33,7 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({ experience
                                                 <div className={clsx("h-full w-full rounded-full", round[colorClass as keyof RoundSchema])}></div>
                                             </div>
 
-                                            {index !== experience.length - 1 && (
+                                            {index !== experiences.length - 1 && (
                                                 <div className="absolute border-r-2 border-dashed border-[#1D2939] h-full top-12"></div>
                                             )}
                                         </div>
@@ -57,13 +58,16 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({ experience
                                             <div className={clsx("h-full w-full rounded-full", round[colorClass as keyof RoundSchema])}></div>
                                         </div>
 
-                                        {index !== experience.length - 1 && (
+                                        {index !== experiences.length - 1 && (
                                             <div className="absolute border-r-2 border-dashed border-[#1D2939] h-full top-12"></div>
                                         )}
                                     </div>
                                     <div className="flex flex-col space-y-3 w-1/2">
-                                        <h3 className="text-4xl font-bold text-[#344054]">{item.position}</h3>
-                                        <p className="text-xl text-gray-400">{item.description}</p>
+                                        <div className="flex space-x-2">
+                                            <h3 className="text-4xl font-bold text-[#344054]">{item.position}</h3>
+                                            <p className="text-xl text-gray-400 pt-3">{item.status && `(${item.status})`}</p>
+                                        </div>
+                                        <p className="text-xl text-gray-400 min-h-[140px] max-h-[140px]">{item.description}</p>
                                     </div>
                                 </div>
                             );

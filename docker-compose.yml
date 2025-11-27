@@ -1,0 +1,33 @@
+services:
+  dev:
+    build: 
+      context: .
+      dockerfile: ./Dockerfile.dev
+    container_name: personal-app-dev
+    restart: unless-stopped
+    ports:
+      - "3100:3000"
+    volumes:
+      - .:/app                    # Mount semua source code
+      - /app/node_modules         # Jangan overwrite node_modules
+      - /app/.vite                # Cache Vite
+    environment:
+      - NODE_ENV=development
+    networks:
+      - app-network
+
+  prod:
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: personal-app-prod
+    restart: unless-stopped
+    ports:
+      - "3101:3000"
+    networks:
+      - app-network
+
+      
+networks:
+  app-network:
+    driver: bridge

@@ -1,11 +1,8 @@
 export const ProjectCount = [
-    // {
-    //     value: "11",
-    //     label: "Project Completed",
-    // },
+    // { value: "11", label: "Project Completed" },
 ];
 
-export const PROJECT_LIST = [
+export const PROJECTS = [
     {
         name: 'Sakoo.id',
         description: 'Sakoo (Satu Toko Online) merupakan salah satu dari 17 startup binaan Telkom yang memberikan solusi pengelolaan stok dan integrasi kanal penjualan bagi para pemilik bisnis. Sakoo adalah aplikasi web yang mengintegrasikan value chain penjualan ke dalam sistem pengelolaan stok yang dapat membantu pemilik bisnis meningkatkan efektivitas dan efisiensi dalam berjualan.',
@@ -74,6 +71,27 @@ export const PROJECT_LIST = [
         description: 'Built an internal ERM system for PT Antara ETP to track, assess, and report business risks. Key features include risk/process inventorization, event reporting, KPI tracking, and BUMN-compliant workflows integrated with legal tools.',
         image: '/assets/projects/erm.png',
         link: '',
+        tags: [''],
+    },
+    {
+        name: 'Video Stitch Generator',
+        description: '',
+        image: '/assets/projects/mvg-staging.png',
+        link: 'https://stitcher.frnd.io/',
+        tags: [''],
+    },
+    {
+        name: 'BRI Future Investment',
+        description: 'BRIFINE adalah program pensiun dari DPLK BRI yang memudahkan Anda merencanakan masa depan lewat iuran rutin dan pilihan investasi fleksibel. Cocok untuk merencanakan dana pensiun pribadi sejak dini dengan cara praktis dan terpercaya.',
+        image: '/assets/projects/brifine.png',
+        link: '',
+        tags: [''],
+    },
+    {
+        name: 'Akademi Inspiradzi',
+        description: 'Akademi Inspiradzi merupakan platform pembelajaran digital dari K-Link Nusantara yang menyediakan informasi seputar perusahaan serta berbagai materi bisnis dalam bentuk e-book, video, dan podcast.',
+        image: '/assets/projects/akademiinspiradzi.png',
+        link: 'https://akademiinspiradzi.com/',
         tags: [''],
     },
 ]

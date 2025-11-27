@@ -6,47 +6,59 @@ A modern personal portfolio website built with **React**, **TypeScript**, and **
 
 ## 🔗 Demo
 
-Lihat aplikasi yang berjalan di: [faisalfahlevi.vercel.app](https://faisalfahlevi.vercel.app/)
+View the live application at: [faisalfahlevi.vercel.app](https://faisalfahlevi.vercel.app/)
 
 ---
 
 ## 🚀 Features
 
-- ⚡ Built with Vite for fast development
-- 🎨 Styled with modern CSS frameworks
-- 🧱 Modular and reusable components
-- ✅ Type-safe with TypeScript
-- 📂 Clean folder structure following SOLID principles
-- 🌐 Fully responsive design
+- ⚡ **Vite**: Fast development and optimized builds.
+- ⚛️ **React 19**: Leveraging the latest features of React.
+- ✅ **TypeScript**: For robust, type-safe code.
+- 🎨 **Tailwind CSS**: A utility-first CSS framework for modern styling.
+- 🧱 **Component-Based Architecture**: Modular and reusable components.
+- 📂 **Clean Folder Structure**: Organized based on SOLID principles for scalability.
+- 📱 **Responsive Design**: Fully responsive for all devices.
+- 🐋 **Docker Ready**: Includes `Dockerfile` and `docker-compose.yml` for containerization.
 
 ---
 
 ## 📂 Project Structure
 
+The project follows a feature-based, modular structure to ensure a clean separation of concerns.
+
 ```
-personal-site/
-├── public/                     # Static files (images, icons, etc.)
+personal-app/
+├── public/
+│   └── assets/                 # Static assets (images, resume, etc.)
 │
-├── components/             # Reusable UI components
-├── pages/                  # Page-level components
-├── hooks/                  # Custom React hooks
-├── utils/                  # Utility functions and helpers
-├── styles/                 # Global and component-specific styles
-├── assets/                 # Static assets like images and fonts
-├── services/               # API calls and external service integrations
+├── components/                 # Reusable UI components
+│   ├── abstracts/              # Base components (Meta, Title)
+│   ├── common/                 # Generic, shared components (Button, Input)
+│   ├── footer/                 # Footer sections
+│   ├── project/                # Components related to projects
+│   └── section/                # Page sections (About, Skills, etc.)
 │
-├── .env                        # Environment variables
+├── constants/                  # App-wide constants (navigation links, skills data)
+├── hooks/                      # Custom React hooks for shared logic
+├── modules/                    # TypeScript interfaces and type definitions
+├── pages/                      # Top-level page components
+├── styles/                     # Global styles and CSS utilities
+├── utils/                      # Utility functions
+│
+├── Dockerfile                  # Production Docker configuration
+├── docker-compose.yml          # Docker Compose setup
 ├── vite.config.ts              # Vite configuration
 ├── tsconfig.json               # TypeScript configuration
-├── package.json                # NPM scripts and dependencies
-└── README.md                   # Project documentation
+├── package.json                # Project dependencies and scripts
+└── README.md                   # This file
 ```
-
-This structure ensures a clear separation of concerns, making it easier to navigate and extend the project.
 
 ---
 
 ## 🛠️ Getting Started
+
+Follow these steps to get the project up and running on your local machine.
 
 ### 1. Clone the repository
 
@@ -59,67 +71,59 @@ cd personal-site
 
 ```bash
 npm install
-# or
-yarn install
 ```
 
 ### 3. Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
-Visit [http://localhost:3000](http://localhost:3000) in your browser.
+The application will be available at [http://localhost:5173](http://localhost:5173) (or the next available port).
 
 ---
 
 ## 📦 Scripts
 
-| Script         | Description                       |
-|----------------|-----------------------------------|
-| `dev`          | Run the app in development mode   |
-| `build`        | Compile the app for production    |
-| `preview`      | Preview the production build      |
-| `lint`         | Run lint checks                   |
+| Script         | Description                                       |
+|----------------|---------------------------------------------------|
+| `dev`          | Starts the development server with hot-reloading. |
+| `build`        | Bundles the app for production.                   |
+| `preview`      | Serves the production build locally for preview.  |
+| `lint`         | Runs ESLint to check for code quality issues.     |
 
 ---
 
 ## 📌 Technologies Used
 
-- [React](https://reactjs.org/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Vite](https://vitejs.dev/)
-- [CSS Modules](https://github.com/css-modules/css-modules)
+- **Framework**: [React](https://reactjs.org/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Icons**: [Font Awesome](https://fontawesome.com/), [Lucide React](https://lucide.dev/guide/packages/lucide-react)
+- **Animation**: [Framer Motion](https://www.framer.com/motion/)
+- **Utilities**: [clsx](https://github.com/lukeed/clsx), [tailwind-merge](https://github.com/dcastil/tailwind-merge)
 
 ---
 
 ## 🧠 SOLID Principles Applied
 
+This project aims to follow the SOLID principles to create a maintainable and scalable codebase.
+
 | Principle | Description |
 |----------|-------------|
-| **S - Single Responsibility** | Each component handles one specific task or feature. |
-| **O - Open/Closed** | Components are extendable without modifying existing code. |
-| **L - Liskov Substitution** | Components can be replaced with others of the same interface. |
-| **I - Interface Segregation** | Components only receive the props they need. |
-| **D - Dependency Inversion** | High-level modules depend on abstractions, not concrete implementations. |
-
----
-
-## 🙋‍♂️ Acknowledgements
-
-- Inspired by modern portfolio designs.
-- Built with love using React and TypeScript.
+| **S - Single Responsibility** | Each component or module has a single, well-defined responsibility. For example, `components/common/Button.tsx` only handles button rendering and logic. |
+| **O - Open/Closed** | Components are designed to be extensible. For instance, the `Button` component can be extended with new variants without modifying its source code, using `class-variance-authority`. |
+| **L - Liskov Substitution** | Abstract components can be seamlessly replaced by their concrete implementations. |
+| **I - Interface Segregation** | Components only depend on the props they actually use, preventing bloated interfaces. TypeScript interfaces in `modules/` help enforce this. |
+| **D - Dependency Inversion** | High-level modules (like pages) depend on abstractions (hooks or context) rather than concrete implementations, promoting loose coupling. |
 
 ---
 
 ## 📬 Contact
 
-Have questions or feedback?  
-Feel free to reach out via [GitHub](https://github.com/fhlevi).
+Have questions or feedback? Feel free to reach out via [GitHub](https://github.com/fhlevi).
 
 ---
 
-> ⚠️ This project is for personal use and educational purposes only.
+> ⚠️ This project is for personal use and educational purposes.

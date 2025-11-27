@@ -1,6 +1,5 @@
 
 import { NavigationListSchema } from '@modules/types';
-import ProfileImg from '@assets/images/profiles-picture.jpg';
 
 export const NAVIGATE: NavigationListSchema = [
     {
@@ -17,7 +16,7 @@ export const NAVIGATE: NavigationListSchema = [
     },
     {
         name: "Profile",
-        image: ProfileImg,
+        image: "/assets/images/profiles-picture.jpg",
         href: ""
     },
     {

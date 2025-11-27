@@ -1,10 +1,10 @@
 // import { Button } from "@components/common/button";
 import { Container } from "@components/common/container";
 import { ProjectCard } from "@components/project/project-card";
-import { PROJECT_LIST } from "@constants/projects";
+import { useContens } from "@hook/use-contents";
 
 export const ProjectsSection = () => {
-    const projects = PROJECT_LIST;
+    const { projects } = useContens();
 
     return (
         <section id="projects" className="relative py-14">

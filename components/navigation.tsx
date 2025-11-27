@@ -1,7 +1,5 @@
 import '@styles/navigation.css';
 import { NavigationItems } from './navigation-items';
-
-import ProfileImg from '@assets/images/profiles-picture.jpg';
 import React from 'react';
 import { useDevice } from '@hook/use-device';
 
@@ -44,7 +42,7 @@ export const Navigation = () => {
                             onSetActive={handleSetActive}
                         />
                         <NavigationItems
-                            image={ProfileImg}
+                            image="/assets/images/profiles-picture.jpg"
                             to="#"
                         />
                         <NavigationItems

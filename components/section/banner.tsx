@@ -13,8 +13,8 @@ export const Banner = () => {
 
     const handleDownload = () => {
         const link = document.createElement('a');
-        link.href = '/assets/Faisal Fahlevi-resume.pdf';
-        link.download = 'Faisal Fahlevi-resume.pdf';
+        link.href = '/assets/FaisalFahlevi-resume.pdf';
+        link.download = 'FaisalFahlevi-resume.pdf';
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
@@ -67,7 +67,7 @@ export const Banner = () => {
                         <Testimonial text="Faisal Fahlevi expertise in web development and attention to detail have significantly enhanced our platform's performance and user experience. Highly recommended" />
                         <div className="flex flex-col space-y-5">
                             <Rating stars={5} />
-                            <Experience years={5} />
+                            <Experience years={6} />
                         </div>
                     </div>
                     <div className="absolute w-full bottom-0 items-center justify-center flex">

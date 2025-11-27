@@ -1,15 +1,15 @@
 import { Container } from "../common/container";
 import { SocialNetwork } from "../social-network";
-import { useSocialNetwork } from '@hook/use-social-network';
-import { openLink } from '@utils/open-link';
 import { FooterNavigation } from "./footer-navigation";
 import { FooterContact } from "./footer-contact";
 import { FooterSubscription } from "./footer-subcription";
+import { openLink } from '@utils/open-link';
 import { useDevice } from '@hook/use-device';
+import { useContens } from "@hook/use-contents";
 
 export const Footer = () => {
     const { devices } = useDevice();
-    const socialList = useSocialNetwork();
+    const { socialList } = useContens();
 
     return (
         <footer className="bg-footer w-full min-h-32 rounded-t-3xl">

@@ -35,3 +35,15 @@ export interface ButtonBannerProps {
     onClick?: () => void;
     to?: string;
 }
+
+export interface UseReadMoreOptions {
+    maxLength?: number;
+    suffix?: string;
+}
+
+export interface UseReadMoreReturn {
+    displayedText: string;
+    isExpanded: boolean;
+    isLongText: boolean;
+    toggleExpand: () => void;
+}
