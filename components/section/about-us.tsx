@@ -3,12 +3,11 @@ import { Link } from "react-scroll";
 import { ArrowRight } from "lucide-react";
 import { Container } from "@components/common/container";
 import { useDevice } from "@hook/use-device";
-import { useContens } from "@hook/use-contents";
 import { useReadMore } from '@hook/use-readmore';
+import { ABOUT as aboutUs } from '@constants/profiles';
 
 export const AboutUsSection: React.FC = () => {
     const { devices } = useDevice();
-    const { aboutUs } = useContens();
     const { displayedText, isLongText, toggleExpand, isExpanded } = useReadMore(aboutUs.description);
 
     const { description, stats } = aboutUs;

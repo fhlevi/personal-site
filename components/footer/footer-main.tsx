@@ -5,11 +5,10 @@ import { FooterContact } from "./footer-contact";
 import { FooterSubscription } from "./footer-subcription";
 import { openLink } from '@utils/open-link';
 import { useDevice } from '@hook/use-device';
-import { useContens } from "@hook/use-contents";
+import { SOCIAL_NETWORK as socialNetworks } from "@constants/networking";
 
 export const Footer = () => {
     const { devices } = useDevice();
-    const { socialList } = useContens();
 
     return (
         <footer className="bg-footer w-full min-h-32 rounded-t-3xl">
@@ -28,7 +27,7 @@ export const Footer = () => {
                             <FooterNavigation />
                             <FooterContact />
                             <FooterSubscription />
-                            <SocialNetwork socialList={socialList} onOpenLink={openLink} />
+                            <SocialNetwork socialList={socialNetworks} onOpenLink={openLink} />
                         </div>
                     ) : (
                         <div className="py-14 flex flex-col md:flex-row items-start justify-between">
@@ -36,7 +35,7 @@ export const Footer = () => {
                                 <p className="text-xl text-white">
                                     Faisal Fahlevi expertise in web development and attention to detail have significantly enhanced our platform's performance and user experience. Highly recommended
                                 </p>
-                                <SocialNetwork socialList={socialList} onOpenLink={openLink} />
+                                <SocialNetwork socialList={socialNetworks} onOpenLink={openLink} />
                             </div>
                             <FooterNavigation />
                             <FooterContact />

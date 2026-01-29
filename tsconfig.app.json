@@ -31,6 +31,7 @@
       "@hook/*": ["hooks/*"],
       "@modules/*": ["modules/*"],
       "@constants/*": ["constants/*"],
+      "@services/*": ["services/*"]
     }
   },
   "include": ["src", "@types", "utils", "main.tsx", "vite-env.d.ts", "components", "constants", "hooks", "pages"]

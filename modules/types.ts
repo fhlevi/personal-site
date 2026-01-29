@@ -42,7 +42,12 @@ export type ProjectsSchema = {
     tags: string[]
 }
 
-export type SkillsSchema = string[];
+type SkillItemSchema = {
+    id: string | number;
+    skill: string;
+}
+
+export type SkillsSchema = SkillItemSchema[];
 export type ProjectListSchema = ProjectsSchema[];
 export type ExperienceListSchema = ExperienceSchema[];
 export type NavigationListSchema = NavigationSchema[];

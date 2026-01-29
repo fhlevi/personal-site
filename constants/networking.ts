@@ -1,7 +1,8 @@
 import { faLinkedin, faGithubSquare, faWhatsappSquare } from '@fortawesome/free-brands-svg-icons';
 import { v4 as uuidv4 } from 'uuid';
+import type { SocialNetworkListSchema } from "modules/types";
 
-export const SOCIAL_NETWORK = [
+export const SOCIAL_NETWORK: SocialNetworkListSchema = [
     {
         id: uuidv4(),
         icon: faLinkedin,
