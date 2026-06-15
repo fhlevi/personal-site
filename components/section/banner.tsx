@@ -67,7 +67,7 @@ export const Banner = () => {
                         <Testimonial text="Faisal Fahlevi expertise in web development and attention to detail have significantly enhanced our platform's performance and user experience. Highly recommended" />
                         <div className="flex flex-col space-y-5">
                             <Rating stars={5} />
-                            <Experience years={6} />
+                            <Experience years={7} />
                         </div>
                     </div>
                     <div className="absolute w-full bottom-0 items-center justify-center flex">

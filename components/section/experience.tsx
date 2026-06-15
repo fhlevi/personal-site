@@ -6,52 +6,50 @@ import { useDevice } from "@hook/use-device";
 import { useQuery } from 'react-query';
 import { getExperience } from "@services/profiles";
 import type { ExperienceListSchema } from "modules/types";
+import { ExperienceShimmerDesktop, ExperienceShimmerMobile } from "@components/experience/experience-shimmer";
 
-// Shimmer Components
-const ExperienceShimmerMobile = () => (
-    <div className="flex gap-4 h-1/2">
-        <div className="relative flex justify-center space-y-10">
-            <div className="h-12 w-12 p-2 rounded-full border-2 border-dashed border-gray-300 flex items-center justify-center">
-                <div className="h-full w-full rounded-full bg-gray-300 animate-pulse"></div>
-            </div>
-            <div className="absolute border-r-2 border-dashed border-gray-300 h-full top-12"></div>
-        </div>
-        <div className="flex flex-col space-y-3 flex-1">
-            <div className="h-12 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 rounded w-3/4 animate-shimmer" style={{ backgroundSize: '200% 100%' }}></div>
-            <div className="h-8 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 rounded w-1/2 animate-shimmer" style={{ backgroundSize: '200% 100%' }}></div>
-            <div className="h-6 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 rounded w-full animate-shimmer" style={{ backgroundSize: '200% 100%' }}></div>
-            <div className="h-6 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 rounded w-5/6 animate-shimmer" style={{ backgroundSize: '200% 100%' }}></div>
-            <div className="h-5 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 rounded w-1/3 animate-shimmer" style={{ backgroundSize: '200% 100%' }}></div>
-        </div>
-    </div>
-);
-
-const ExperienceShimmerDesktop = () => (
-    <div className="flex flex-row gap-4">
-        <div className="flex flex-col items-end justify-start text-right space-y-3 w-1/2">
-            <div className="h-12 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 rounded w-3/4 ml-auto animate-shimmer" style={{ backgroundSize: '200% 100%' }}></div>
-            <div className="h-8 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 rounded w-1/2 ml-auto animate-shimmer" style={{ backgroundSize: '200% 100%' }}></div>
-        </div>
-        <div className="relative flex justify-center space-y-10">
-            <div className="h-12 w-12 p-2 rounded-full border-2 border-dashed border-gray-300 flex items-center justify-center">
-                <div className="h-full w-full rounded-full bg-gray-300 animate-pulse"></div>
-            </div>
-            <div className="absolute border-r-2 border-dashed border-gray-300 h-full top-12"></div>
-        </div>
-        <div className="flex flex-col space-y-3 w-1/2">
-            <div className="h-10 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 rounded w-3/4 animate-shimmer" style={{ backgroundSize: '200% 100%' }}></div>
-            <div className="h-6 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 rounded w-full animate-shimmer" style={{ backgroundSize: '200% 100%' }}></div>
-            <div className="h-6 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 rounded w-5/6 animate-shimmer" style={{ backgroundSize: '200% 100%' }}></div>
-            <div className="h-6 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 rounded w-4/5 animate-shimmer" style={{ backgroundSize: '200% 100%' }}></div>
-        </div>
-    </div>
-);
+const MONTH_MAP: Record<string, number> = {
+    'Jan': 0, 'Feb': 1, 'Mar': 2, 'Apr': 3,
+    'Mei': 4, 'May': 4, 'Jun': 5, 'Jul': 6,
+    'Agu': 7, 'Aug': 7, 'Sep': 8, 'Okt': 9,
+    'Oct': 9, 'Nov': 10, 'Des': 11, 'Dec': 11,
+};
 
 export const ExperienceSection: React.FC = () => {
     const { devices } = useDevice();
 
     const queryExperiences = useQuery(['experience-list'], getExperience);
-    const experiences = queryExperiences.data?.data as ExperienceListSchema || [];
+
+    const parseDate = (part: string): number => {
+        const trimmed = part.trim();
+
+        if (trimmed.toLowerCase() === 'present' || trimmed === '') {
+            return Number.MAX_SAFE_INTEGER;
+        }
+
+        const [month, year] = trimmed.split(' ');
+        return new Date(parseInt(year), MONTH_MAP[month] ?? 0).getTime();
+    };
+
+    const parseExperienceDate = (dateStr: string) => {
+        const [start, end] = dateStr.split(' - ');
+        return {
+            start: parseDate(start),
+            end: parseDate(end ?? '')
+        };
+    };
+
+    const experiences = (queryExperiences.data?.data as ExperienceListSchema || [])
+        .slice()
+        .sort((a, b) => {
+            const dateA = parseExperienceDate(a.date);
+            const dateB = parseExperienceDate(b.date);
+
+            if (dateB.end !== dateA.end) return dateB.end - dateA.end;
+
+            return dateB.start - dateA.start;
+        });
+
     const isLoading = queryExperiences.isLoading;
 
     return (
