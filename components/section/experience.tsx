@@ -7,6 +7,7 @@ import { useQuery } from 'react-query';
 import { getExperience } from "@services/profiles";
 import type { ExperienceListSchema } from "modules/types";
 import { ExperienceShimmerDesktop, ExperienceShimmerMobile } from "@components/experience/experience-shimmer";
+import { Condition } from "@components/abstracts/condition";
 
 const MONTH_MAP: Record<string, number> = {
     'Jan': 0, 'Feb': 1, 'Mar': 2, 'Apr': 3,
@@ -66,24 +67,20 @@ export const ExperienceSection: React.FC = () => {
 
                     {/* List Wrapper dengan relative untuk gradient overlay */}
                     <div className="relative">
-                        <div 
-                            className={clsx(
-                                "flex flex-col space-y-12 overflow-hidden transition-all duration-500",
-                                !isExpanded && hasMore && "max-h-[1400px]" // sesuaikan tinggi agar pas 5 item
-                            )}
-                        >
-                            {isLoading ? (
-                                <>
-                                    {Array.from({ length: 3 }).map((_, index) => (
-                                        devices.mobile ? (
-                                            <ExperienceShimmerMobile key={index} />
-                                        ) : (
-                                            <ExperienceShimmerDesktop key={index} />
-                                        )
-                                    ))}
-                                </>
-                            ) : (
-                                experiences.map((item, index) => {
+                        <div className={clsx(
+                            "flex flex-col space-y-12 overflow-hidden transition-all duration-500", {
+                                "max-h-[1400px]": (!isExpanded && hasMore)
+                            })}>
+
+                            <Condition If={isLoading}>
+                                {Array.from({ length: 3 }).map((_, index) => devices.mobile
+                                    ? <ExperienceShimmerMobile key={index} />
+                                    : <ExperienceShimmerDesktop key={index} />
+                                )}
+                            </Condition>
+
+                            <Condition Else>
+                                {experiences.map((item, index) => {
                                     const colorClass = index % 2 === 0 ? 'orange' : 'blue';
                                     const round: RoundSchema = {
                                         orange: 'bg-[#FD853A]',
@@ -134,52 +131,46 @@ export const ExperienceSection: React.FC = () => {
                                             </div>
                                         </div>
                                     );
-                                })
-                            )}
+                                })}
+                            </Condition>
                         </div>
 
                         {/* Gradient Overlay + Button — hanya muncul jika ada lebih dari 5 & belum expand */}
-                        {hasMore && !isExpanded && !isLoading && (
-                            <div
-                                className="absolute bottom-0 left-0 right-0 flex flex-col items-center justify-end pt-32"
+                        <Condition If={hasMore && !isExpanded && !isLoading}>
+                            <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center justify-end pt-32"
                                 style={{
                                     background: 'linear-gradient(to bottom, transparent, white 60%)'
-                                }}
-                            >
-                                <button
-                                    onClick={() => setIsExpanded(true)}
-                                    className="mb-4 flex items-center gap-2 px-6 py-3 rounded-full border border-[#1D2939] bg-white text-[#1D2939] font-semibold shadow-md hover:bg-gray-50 transition-all"
-                                >
-                                    Show more
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
+                                }}>
+                                    <button className="mb-4 flex items-center gap-2 px-6 py-3 rounded-full border border-[#1D2939] bg-white text-[#1D2939] font-semibold shadow-md hover:bg-gray-50 transition-all"
+                                        onClick={() => setIsExpanded(true)}>
+                                            Show more
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                                            </svg>
+                                    </button>
                             </div>
-                        )}
+                        </Condition>
                     </div>
 
                     {/* Button collapse — muncul setelah expand */}
-                    {hasMore && isExpanded && !isLoading && (
+                    <Condition If={hasMore && isExpanded && !isLoading}>
                         <div className="flex justify-center mt-8">
-                            <button
-                                onClick={() => setIsExpanded(false)}
-                                className="flex items-center gap-2 px-6 py-3 rounded-full border border-[#1D2939] bg-white text-[#1D2939] font-semibold shadow-md hover:bg-gray-50 transition-all"
-                            >
-                                Show less
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="h-4 w-4 rotate-180"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                    strokeWidth={2}
-                                >
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                                </svg>
+                            <button className="flex items-center gap-2 px-6 py-3 rounded-full border border-[#1D2939] bg-white text-[#1D2939] font-semibold shadow-md hover:bg-gray-50 transition-all"
+                                onClick={() => setIsExpanded(false)}>
+                                    Show less
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        className="h-4 w-4 rotate-180"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        strokeWidth={2}
+                                    >
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                                    </svg>
                             </button>
                         </div>
-                    )}
+                    </Condition>
                 </div>
             </Container>
         </section>
