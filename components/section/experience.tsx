@@ -8,6 +8,7 @@ import { getExperience } from "@services/profiles";
 import type { ExperienceListSchema } from "modules/types";
 import { ExperienceShimmerDesktop, ExperienceShimmerMobile } from "@components/experience/experience-shimmer";
 import { Condition } from "@components/abstracts/condition";
+import { ScrollReveal, slideInVariant } from "@components/common/scroll-reveal";
 
 const MONTH_MAP: Record<string, number> = {
     'Jan': 0, 'Feb': 1, 'Mar': 2, 'Apr': 3,
@@ -61,9 +62,11 @@ export const ExperienceSection: React.FC = () => {
         <section id="experience" className="pb-22">
             <Container className="flex items-center justify-center">
                 <div className="max-w-6xl w-full">
-                    <h2 className="text-5xl md:text-6xl font-medium text-left md:text-center my-8 mt-16 md:my-[85px]">
-                        My <span className="text-[#FD853A]">Work Experience</span>
-                    </h2>
+                    <ScrollReveal>
+                        <h2 className="text-5xl md:text-6xl font-medium text-left md:text-center my-8 mt-16 md:my-[85px]">
+                            My <span className="text-[#FD853A]">Work Experience</span>
+                        </h2>
+                    </ScrollReveal>
 
                     {/* List Wrapper dengan relative untuk gradient overlay */}
                     <div className="relative">
@@ -98,22 +101,22 @@ export const ExperienceSection: React.FC = () => {
                                                         <div className="absolute border-r-2 border-dashed border-[#1D2939] h-full top-12"></div>
                                                     )}
                                                 </div>
-                                                <div className="flex flex-col space-y-3">
+                                                <ScrollReveal variants={slideInVariant('right')} className="flex flex-col space-y-3">
                                                     <h3 className="text-[40px] font-bold text-[#344054]">{item.company}</h3>
                                                     <h4 className="text-2xl font-bold text-[#344054]">{item.position}</h4>
                                                     <p className="text-xl text-gray-400">{item.description}</p>
                                                     <p className="text-lg text-gray-400">{item.date}</p>
-                                                </div>
+                                                </ScrollReveal>
                                             </div>
                                         );
                                     }
 
                                     return (
                                         <div key={index} className="flex flex-row gap-4">
-                                            <div className="flex flex-col items-end justify-start text-right space-y-3 w-1/2">
+                                            <ScrollReveal variants={slideInVariant('left')} className="flex flex-col items-end justify-start text-right space-y-3 w-1/2">
                                                 <h3 className="text-[40px] font-bold text-[#344054]">{item.company}</h3>
                                                 <p className="text-2xl text-gray-400">{item.date}</p>
-                                            </div>
+                                            </ScrollReveal>
                                             <div className="relative flex justify-center space-y-10">
                                                 <div className="h-12 w-12 p-2 rounded-full border-2 border-dashed border-[#1D2939] flex items-center justify-center">
                                                     <div className={clsx("h-full w-full rounded-full", round[colorClass as keyof RoundSchema])}></div>
@@ -122,13 +125,13 @@ export const ExperienceSection: React.FC = () => {
                                                     <div className="absolute border-r-2 border-dashed border-[#1D2939] h-full top-12"></div>
                                                 )}
                                             </div>
-                                            <div className="flex flex-col space-y-3 w-1/2">
+                                            <ScrollReveal variants={slideInVariant('right')} className="flex flex-col space-y-3 w-1/2">
                                                 <div className="flex space-x-2">
                                                     <h3 className="text-4xl font-bold text-[#344054]">{item.position}</h3>
                                                     <p className="text-xl text-gray-400 pt-3">{item.status && `(${item.status})`}</p>
                                                 </div>
                                                 <p className="text-xl text-gray-400 min-h-[140px] max-h-[140px]">{item.description}</p>
-                                            </div>
+                                            </ScrollReveal>
                                         </div>
                                     );
                                 })}

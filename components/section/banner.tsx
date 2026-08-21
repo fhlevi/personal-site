@@ -4,6 +4,8 @@ import { Rating } from "@components/common/rating";
 import { Experience } from "@components/common/experience";
 import React from "react";
 import { ButtonBanner } from "@components/button-banner";
+import { ScrollReveal, fadeUpVariant, staggerContainer } from "@components/common/scroll-reveal";
+import { motion } from "framer-motion";
 import { ArrowDownToLine, ArrowUpRight } from "lucide-react";
 import { useDevice } from "@hook/use-device";
 
@@ -25,11 +27,11 @@ export const Banner = () => {
             <section id="banner">
                 <Container>
                     <div className="flex flex-col h-full">
-                        <div className="my-14 flex flex-col items-center w-full">
-                            <div className="px-6 py-3 border border-black rounded-full w-fit">Hello!</div>
-                            <h1 className="text-[75px] lg:w-4xl text-center font-semibold leading-24 mt-5">I'm <span className="text-orange-400">Faisal Fahlevi</span>, <br />Frontend Engineer</h1>
-                        </div>
-                        <div className="w-full bottom-0 items-center justify-center flex">
+                        <ScrollReveal variants={staggerContainer} isStaggerContainer className="my-14 flex flex-col items-center w-full">
+                            <motion.div variants={fadeUpVariant} className="px-6 py-3 border border-black rounded-full w-fit">Hello!</motion.div>
+                            <motion.h1 variants={fadeUpVariant} className="text-[75px] lg:w-4xl text-center font-semibold leading-24 mt-5">I'm <span className="text-orange-400">Faisal Fahlevi</span>, <br />Frontend Engineer</motion.h1>
+                        </ScrollReveal>
+                        <ScrollReveal variants={fadeUpVariant} className="w-full bottom-0 items-center justify-center flex">
                             <div className="w-auto h-auto p-2.5 backdrop-blur-md bg-[#0000007f]/20 rounded-full grid grid-cols-2 items-center justify-center text-lg lg:text-xl">
                                 <ButtonBanner 
                                 name="contact" 
@@ -48,7 +50,7 @@ export const Banner = () => {
                                     <ArrowDownToLine size={20} />
                                 </ButtonBanner>
                             </div>
-                        </div>
+                        </ScrollReveal>
                     </div>
                 </Container>
             </section>
@@ -59,18 +61,18 @@ export const Banner = () => {
         <section id="banner">
             <Container>
                 <div className="relative min-h-[52rem] h-full">
-                    <div className="absolute top-14 flex flex-col items-center w-full">
-                        <div className="px-6 py-3 border border-black rounded-full w-fit">Hello!</div>
-                        <h1 className="text-[95px] lg:w-4xl text-center font-semibold leading-24 mt-5">I'm <span className="text-orange-400">Faisal Fahlevi</span>, <br />Frontend Engineer</h1>
-                    </div>
-                    <div className="w-full h-full absolute flex items-center justify-between">
+                    <ScrollReveal variants={staggerContainer} isStaggerContainer className="absolute top-14 flex flex-col items-center w-full">
+                        <motion.div variants={fadeUpVariant} className="px-6 py-3 border border-black rounded-full w-fit">Hello!</motion.div>
+                        <motion.h1 variants={fadeUpVariant} className="text-[95px] lg:w-4xl text-center font-semibold leading-24 mt-5">I'm <span className="text-orange-400">Faisal Fahlevi</span>, <br />Frontend Engineer</motion.h1>
+                    </ScrollReveal>
+                    <ScrollReveal variants={fadeUpVariant} className="w-full h-full absolute flex items-center justify-between">
                         <Testimonial text="Faisal Fahlevi expertise in web development and attention to detail have significantly enhanced our platform's performance and user experience. Highly recommended" />
                         <div className="flex flex-col space-y-5">
                             <Rating stars={5} />
                             <Experience years={7} />
                         </div>
-                    </div>
-                    <div className="absolute w-full bottom-0 items-center justify-center flex">
+                    </ScrollReveal>
+                    <ScrollReveal variants={fadeUpVariant} className="absolute w-full bottom-0 items-center justify-center flex">
                         <div className="w-auto h-auto p-2.5 backdrop-blur-md bg-[#0000007f]/20 rounded-full grid grid-cols-2 items-center justify-center text-lg lg:text-xl">
                             <ButtonBanner 
                             name="contact" 
@@ -89,7 +91,7 @@ export const Banner = () => {
                                 <ArrowDownToLine size={28} />
                             </ButtonBanner>
                         </div>
-                    </div>
+                    </ScrollReveal>
                 </div>
             </Container>
         </section>

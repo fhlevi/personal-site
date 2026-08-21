@@ -15,11 +15,11 @@ export const ButtonBanner = ({
         initial: { x: buttonActive === 'contact' ? "100%" : "-100%" },
         animate: { x: 0, opacity: 1 },
         transition: {
-            type: "spring",
+            type: "spring" as const,
             stiffness: 200,
             damping: 20,
         }
-    }
+    };
 
     const handleSetActive = () => {
         onSetActive(name);

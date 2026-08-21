@@ -7,6 +7,8 @@ import { getProjects } from "@services/profiles";
 import type { ProjectListSchema } from "modules/types";
 import { ProjectCardShimmer } from "@components/project/project-shimmer";
 import { Condition } from "@components/abstracts/condition";
+import { ScrollReveal, staggerContainer, fadeUpVariant } from "@components/common/scroll-reveal";
+import { motion } from "framer-motion";
 
 const INITIAL_SHOW = 4; // tampilkan 4 project pertama (2 baris di desktop)
 
@@ -23,20 +25,24 @@ export const ProjectsSection = () => {
         <section id="projects" className="relative py-14">
             <Container>
                 <div className="container">
-                    <div className="flex flex-row items-center justify-between">
+                    <ScrollReveal className="flex flex-row items-center justify-between">
                         <p className="text-5xl md:text-6xl font-semibold max-w-[643px] leading-16 md:leading-20">
                             Lets have a look at my&nbsp;
                             <span className="text-orange-400">Projects</span>
                         </p>
-                    </div>
+                    </ScrollReveal>
 
                     {/* Grid Wrapper */}
                     <div className="relative mt-[50px]">
-                        <div className={clsx(
-                            "grid md:grid-cols-2 gap-6 overflow-hidden transition-all duration-500", {
-                                "max-h-[760px]": (!isExpanded && hasMore)
-                            }
-                        )}>
+                        <ScrollReveal
+                            variants={staggerContainer}
+                            isStaggerContainer
+                            className={clsx(
+                                "grid md:grid-cols-2 gap-6 overflow-hidden transition-all duration-500", {
+                                    "max-h-[760px]": (!isExpanded && hasMore)
+                                }
+                            )}
+                        >
 
                             <Condition If={isLoading}>
                                 {Array.from({ length: 4 }).map((_, index) => <ProjectCardShimmer key={index} variant={index + 1} />)}
@@ -44,17 +50,18 @@ export const ProjectsSection = () => {
 
                             <Condition Else>
                                 {projects.map((project, index) => (
-                                    <ProjectCard
-                                        key={index}
-                                        name={project.name}
-                                        description={project.description}
-                                        image={project.image}
-                                        tags={project.tags}
-                                        link={project.link}
-                                    />
+                                    <motion.div key={index} variants={fadeUpVariant}>
+                                        <ProjectCard
+                                            name={project.name}
+                                            description={project.description}
+                                            image={project.image}
+                                            tags={project.tags}
+                                            link={project.link}
+                                        />
+                                    </motion.div>
                                 ))}
                             </Condition>
-                        </div>
+                        </ScrollReveal>
 
                         {/* Gradient Overlay + Show More Button */}
                         <Condition If={hasMore && !isExpanded && !isLoading}>
