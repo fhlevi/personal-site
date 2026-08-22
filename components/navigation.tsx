@@ -1,13 +1,13 @@
 import '@styles/navigation.css';
 import { NavigationItems } from './navigation-items';
 import React from 'react';
-import { useObfuscateImage } from '@hook/use-obfuscate-image';
+import { useObfuscatedImage } from '@hook/use-obfuscate-image';
 import { useDevice } from '@hook/use-device';
 
 export const Navigation = () => {
     const { devices } = useDevice();
     const [menuActive, setMenuActive] = React.useState<string>('banner');
-    const { blobUrl } = useObfuscateImage('profiles-picture.jpg', 'images');
+    const blobUrl = useObfuscatedImage('/assets/images/profiles-picture.jpg');
 
     const handleSetActive = (to: string) => { setMenuActive(to) };;
 

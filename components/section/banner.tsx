@@ -8,15 +8,16 @@ import { ScrollReveal, fadeUpVariant, staggerContainer } from "@components/commo
 import { motion } from "framer-motion";
 import { ArrowDownToLine, ArrowUpRight } from "lucide-react";
 import { useDevice } from "@hook/use-device";
-import PdfResume from '@assets/FaisalFahlevi-resume.pdf';
+import { useObfuscatedImage } from '@hook/use-obfuscate-image';
 
 export const Banner = () => {
     const { devices } = useDevice();
     const [buttonActive, setButtonActive] = React.useState<string>('contact');
+    const blobUrl = useObfuscatedImage('/assets/FaisalFahlevi-resume.pdf');
 
     const handleDownload = () => {
         const link = document.createElement('a');
-        link.href = PdfResume;
+        link.href = blobUrl;
         link.download = 'FaisalFahlevi-resume.pdf';
         document.body.appendChild(link);
         link.click();

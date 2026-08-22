@@ -3,7 +3,7 @@ import { ProjectCardProps } from '@modules/interfaces';
 import { ProjectButton } from './project-button';
 import { useHover } from '@hook/use-hover';
 import { ProjectDescription } from './project-description';
-import { useObfuscateImage } from '@hook/use-obfuscate-image';
+import { useObfuscatedImage } from '@hook/use-obfuscate-image';
 
 export const ProjectCard: 
 React.FC<ProjectCardProps> = ({ 
@@ -13,7 +13,7 @@ React.FC<ProjectCardProps> = ({
     link
 }) => {
     const { isHover, onHoverEnter, onHoverLeave } = useHover();
-    const { blobUrl } = useObfuscateImage(image, 'projects');
+    const blobUrl = useObfuscatedImage('assets/images/projects/' + image);
 
     const variant = isHover ? "default" : "outline";
 
