@@ -8,6 +8,7 @@ import { ScrollReveal, fadeUpVariant, staggerContainer } from "@components/commo
 import { motion } from "framer-motion";
 import { ArrowDownToLine, ArrowUpRight } from "lucide-react";
 import { useDevice } from "@hook/use-device";
+import PdfResume from '@assets/FaisalFahlevi-resume.pdf';
 
 export const Banner = () => {
     const { devices } = useDevice();
@@ -15,7 +16,7 @@ export const Banner = () => {
 
     const handleDownload = () => {
         const link = document.createElement('a');
-        link.href = '/assets/FaisalFahlevi-resume.pdf';
+        link.href = PdfResume;
         link.download = 'FaisalFahlevi-resume.pdf';
         document.body.appendChild(link);
         link.click();

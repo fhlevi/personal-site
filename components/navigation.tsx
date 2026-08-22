@@ -1,15 +1,15 @@
 import '@styles/navigation.css';
 import { NavigationItems } from './navigation-items';
 import React from 'react';
+import { useObfuscateImage } from '@hook/use-obfuscate-image';
 import { useDevice } from '@hook/use-device';
 
 export const Navigation = () => {
     const { devices } = useDevice();
     const [menuActive, setMenuActive] = React.useState<string>('banner');
+    const { blobUrl } = useObfuscateImage('profiles-picture.jpg', 'images');
 
-    const handleSetActive = (to: string) => {
-        setMenuActive(to);
-    };
+    const handleSetActive = (to: string) => { setMenuActive(to) };;
 
     return (
         <header className="relative flex items-center justify-center w-full sticky top-0 z-50">
@@ -42,7 +42,7 @@ export const Navigation = () => {
                             onSetActive={handleSetActive}
                         />
                         <NavigationItems
-                            image="/assets/images/profiles-picture.jpg"
+                            image={blobUrl}
                             to="#"
                         />
                         <NavigationItems
