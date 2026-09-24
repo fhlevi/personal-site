@@ -1,8 +1,10 @@
 import "@styles/navigation.css";
 import { NavigationItems } from "./navigation-items";
 import React from "react";
+import { motion } from "framer-motion";
 import { useObfuscatedImage } from "@hook/use-obfuscate-image";
 import { useDevice } from "@hook/use-device";
+import { ThemeToggle } from "@components/common/theme-toggle";
 
 export const Navigation = () => {
     const { devices } = useDevice();
@@ -20,8 +22,8 @@ export const Navigation = () => {
                     Faisal Fahlevi
                 </div>
             ) : (
-                <nav className="text-white mt-0 sm:mt-10 h-14 sm:h-20 nav min-w-[calc(var(--container-xs) * 3)] rounded-[var(--rounded-50)]">
-                    <div className="relative hidden sm:flex justify-between items-center p-2.5 h-full">
+                <motion.nav layout transition={{ type: "spring", bounce: 0.2, duration: 0.8 }} className=" mt-0 sm:mt-10 h-14 sm:h-20 nav w-max mx-auto rounded-[var(--rounded-50)]">
+                    <div className="relative hidden sm:flex justify-center items-center p-2.5 h-full gap-2">
                         <NavigationItems
                             name="Home"
                             to="banner"
@@ -65,8 +67,11 @@ export const Navigation = () => {
                             menuActive={menuActive}
                             onSetActive={handleSetActive}
                         />
+                        <div className="flex items-center pl-2 border-l border-white/20 ml-2">
+                            <ThemeToggle />
+                        </div>
                     </div>
-                </nav>
+                </motion.nav>
             )}
         </header>
     );

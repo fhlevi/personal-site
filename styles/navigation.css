@@ -6,7 +6,7 @@
 
 .nav {
     /* background-color: rgb(3 7 18 / 0.75); */
-    background-color: #171717;
+    background-color: var(--bg-surface);
 }
 
 .nav-item {
@@ -14,10 +14,10 @@
     width: 136px;
     border-radius: var(--rounded-60);
     /* color: #6b7280; */
-    color: #ffffff;
+    color: var(--text-muted);
 
     &:hover {
-        color: var(--color-white);
+        color: var(--text-primary);
     }
 }
 

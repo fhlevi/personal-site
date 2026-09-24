@@ -23,7 +23,7 @@ React.FC<ProjectCardProps> = ({
 
     return (
         <div 
-        className="group relative w-auto h-[371px] bg-[#F9FAFB] rounded-3xl p-4 flex items-end overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer"
+        className="group relative w-auto h-[371px] bg-bg-surface rounded-3xl p-4 flex items-end overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer"
         onMouseEnter={onHoverEnter}
         onMouseLeave={onHoverLeave}
         onClick={handleClick}>

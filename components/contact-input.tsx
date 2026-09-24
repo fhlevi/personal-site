@@ -33,7 +33,7 @@ export const ContactInput = () => {
         setMessage('');
     }
     return (
-        <div className="p-3.5 bg-white border space-x-3 border-[#E4E7EC] w-full h-[66px] md:h-[86px] rounded-[50px] flex items-center justify-between">
+        <div className="p-3.5 bg-bg-base border space-x-3 border-border-subtle w-full h-[66px] md:h-[86px] rounded-[50px] flex items-center justify-between">
             <div className="w-16 h-10 md:w-20 md:h-14 bg-orange-200 text-orange-500 rounded-5.5xl flex items-center justify-center">
                 <Mail />
             </div>
@@ -41,7 +41,7 @@ export const ContactInput = () => {
                 <input 
                     type="text"
                     placeholder="Enter Message"
-                    className="h-full w-full focus:ring-0 focus:border-none focus:outline-none text-xl placeholder:text-gray-800"
+                    className="h-full w-full focus:ring-0 focus:border-none focus:outline-none text-xl placeholder:text-text-muted bg-transparent text-text-primary"
                     onChange={onInputMessage}
                     required
                 />

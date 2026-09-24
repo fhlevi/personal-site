@@ -30,7 +30,7 @@ export const Banner = () => {
                 <Container>
                     <div className="flex flex-col h-full">
                         <ScrollReveal variants={staggerContainer} isStaggerContainer className="my-14 flex flex-col items-center w-full">
-                            <motion.div variants={fadeUpVariant} className="px-6 py-3 border border-black rounded-full w-fit">Hello!</motion.div>
+                            <motion.div variants={fadeUpVariant} className="px-6 py-3 border border-text-primary rounded-full w-fit">Hello!</motion.div>
                             <motion.h1 variants={fadeUpVariant} className="text-[75px] lg:w-4xl text-center font-semibold leading-24 mt-5">I'm <span className="text-orange-400">Faisal Fahlevi</span>, <br />Frontend Engineer</motion.h1>
                         </ScrollReveal>
                         <ScrollReveal variants={fadeUpVariant} className="w-full bottom-0 items-center justify-center flex">
@@ -64,7 +64,7 @@ export const Banner = () => {
             <Container>
                 <div className="relative min-h-[52rem] h-full">
                     <ScrollReveal variants={staggerContainer} isStaggerContainer className="absolute top-14 flex flex-col items-center w-full">
-                        <motion.div variants={fadeUpVariant} className="px-6 py-3 border border-black rounded-full w-fit">Hello!</motion.div>
+                        <motion.div variants={fadeUpVariant} className="px-6 py-3 border border-text-primary rounded-full w-fit">Hello!</motion.div>
                         <motion.h1 variants={fadeUpVariant} className="text-[95px] lg:w-4xl text-center font-semibold leading-24 mt-5">I'm <span className="text-orange-400">Faisal Fahlevi</span>, <br />Frontend Engineer</motion.h1>
                     </ScrollReveal>
                     <ScrollReveal variants={fadeUpVariant} className="w-full h-full absolute flex items-center justify-between">

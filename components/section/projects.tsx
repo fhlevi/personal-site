@@ -67,9 +67,9 @@ export const ProjectsSection = () => {
                         <Condition If={hasMore && !isExpanded && !isLoading}>
                                 <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center justify-end pt-32 z-10"
                                 style={{
-                                    background: 'linear-gradient(to bottom, transparent, white 60%)'
+                                    background: 'linear-gradient(to bottom, transparent, var(--bg-base) 60%)'
                                 }}>
-                                    <button className="mb-4 flex items-center gap-2 px-6 py-3 rounded-full border border-[#1D2939] bg-white text-[#1D2939] font-semibold shadow-md hover:bg-gray-50 transition-all"
+                                    <button className="mb-4 flex items-center gap-2 px-6 py-3 rounded-full border border-border-subtle bg-bg-base text-text-primary font-semibold shadow-md hover:bg-bg-surface-hover transition-all"
                                     onClick={() => setIsExpanded(true)}>
                                             Show more
                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -85,7 +85,7 @@ export const ProjectsSection = () => {
                         <div className="flex justify-center mt-8">
                             <button
                                 onClick={() => setIsExpanded(false)}
-                                className="flex items-center gap-2 px-6 py-3 rounded-full border border-[#1D2939] bg-white text-[#1D2939] font-semibold shadow-md hover:bg-gray-50 transition-all"
+                                className="flex items-center gap-2 px-6 py-3 rounded-full border border-border-subtle bg-bg-base text-text-primary font-semibold shadow-md hover:bg-bg-surface-hover transition-all"
                             >
                                 Show less
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

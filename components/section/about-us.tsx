@@ -15,12 +15,12 @@ export const AboutUsSection: React.FC = () => {
     return (
         <section id="overview" className="relative pt-14 pb-10">
             <Container>
-                <div className="container items-center px-8 py-8 md:py-[7.63rem] md:px-[4.44rem] bg-[#F2F4F7] min-h-44 rounded-[3.13rem]">
+                <div className="container items-center px-8 py-8 md:py-[7.63rem] md:px-[4.44rem] bg-bg-surface min-h-44 rounded-[3.13rem]">
                     <div className="space-y-[2.94rem]">
                         <div className="text-5xl md:text-6xl font-semibold">
                             Why <span className="text-orange-400">Hire me</span>?
                         </div>
-                        <div className="text-[1.25rem] w-full text-[#98A2B3]">
+                        <div className="text-[1.25rem] w-full text-text-muted">
                             {devices.mobile ? displayedText : description}
                             {isLongText && devices.mobile && (
                                 <span 
@@ -36,13 +36,13 @@ export const AboutUsSection: React.FC = () => {
                                 {stats.map((stat, index) => (
                                     <div key={index} className="space-y-[10px] w-full">
                                         <div className="text-4xl font-medium">{stat.value}</div>
-                                        <div className="text-xl text-gray-400">{stat.label}</div>
+                                        <div className="text-xl text-text-muted">{stat.label}</div>
                                     </div>
                                 ))}
                             </div>
                         )}
                         <Link to="contact">
-                            <button type="button" className="px-6 py-6 md:px-12 md:py-8 flex flex-row space-x-1 hover:space-x-3 items-center justify-center border border-gray-950 rounded-4xl text-xl cursor-pointer font-bold">
+                            <button type="button" className="px-6 py-6 md:px-12 md:py-8 flex flex-row space-x-1 hover:space-x-3 items-center justify-center border border-border-subtle rounded-4xl text-xl cursor-pointer font-bold">
                                 <p>Contact Me</p>
                                 <ArrowRight size={28} />
                             </button>

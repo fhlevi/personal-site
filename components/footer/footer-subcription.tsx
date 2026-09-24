@@ -28,7 +28,7 @@ export const FooterSubscription = () => {
             <div className="flex flex-row h-[3.19rem] w-full">
                 <input
                     type="text"
-                    className="h-full w-full bg-white rounded-l-xl px-4 focus:ring-0 focus:outline-0 focus:border-0"
+                    className="h-full w-full bg-bg-base rounded-l-xl px-4 focus:ring-0 focus:outline-0 focus:border-0"
                     placeholder="Enter Message"
                     value={message}
                     onChange={onInputMessage}

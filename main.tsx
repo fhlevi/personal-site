@@ -1,6 +1,7 @@
 import { createRoot } from 'react-dom/client'
 import '@styles/index.css';
 import App from './pages/App.tsx';
+import { ThemeProvider } from '@hook/use-theme';
 import { HeadProvider } from 'react-head';
 import { QueryClient, QueryClientProvider } from 'react-query'
 
@@ -18,7 +19,9 @@ const queryClient = new QueryClient({
 createRoot(Root!).render(
   <HeadProvider>
     <QueryClientProvider client={queryClient}>
-      <App />
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
     </QueryClientProvider>
   </HeadProvider>,
 )

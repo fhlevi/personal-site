@@ -94,18 +94,18 @@ export const ExperienceSection: React.FC = () => {
                                         return (
                                             <div key={index} className="flex gap-4 h-1/2">
                                                 <div className="relative flex justify-center space-y-10">
-                                                    <div className="h-12 w-12 p-2 rounded-full border-2 border-dashed border-[#1D2939] flex items-center justify-center">
+                                                    <div className="h-12 w-12 p-2 rounded-full border-2 border-dashed border-border-subtle flex items-center justify-center">
                                                         <div className={clsx("h-full w-full rounded-full", round[colorClass as keyof RoundSchema])}></div>
                                                     </div>
                                                     {index !== experiences.length - 1 && (
-                                                        <div className="absolute border-r-2 border-dashed border-[#1D2939] h-full top-12"></div>
+                                                        <div className="absolute border-r-2 border-dashed border-border-subtle h-full top-12"></div>
                                                     )}
                                                 </div>
                                                 <ScrollReveal variants={slideInVariant('right')} className="flex flex-col space-y-3">
-                                                    <h3 className="text-[40px] font-bold text-[#344054]">{item.company}</h3>
-                                                    <h4 className="text-2xl font-bold text-[#344054]">{item.position}</h4>
-                                                    <p className="text-xl text-gray-400">{item.description}</p>
-                                                    <p className="text-lg text-gray-400">{item.date}</p>
+                                                    <h3 className="text-[40px] font-bold text-text-primary">{item.company}</h3>
+                                                    <h4 className="text-2xl font-bold text-text-primary">{item.position}</h4>
+                                                    <p className="text-xl text-text-muted">{item.description}</p>
+                                                    <p className="text-lg text-text-muted">{item.date}</p>
                                                 </ScrollReveal>
                                             </div>
                                         );
@@ -114,23 +114,23 @@ export const ExperienceSection: React.FC = () => {
                                     return (
                                         <div key={index} className="flex flex-row gap-4">
                                             <ScrollReveal variants={slideInVariant('left')} className="flex flex-col items-end justify-start text-right space-y-3 w-1/2">
-                                                <h3 className="text-[40px] font-bold text-[#344054]">{item.company}</h3>
-                                                <p className="text-2xl text-gray-400">{item.date}</p>
+                                                <h3 className="text-[40px] font-bold text-text-primary">{item.company}</h3>
+                                                <p className="text-2xl text-text-muted">{item.date}</p>
                                             </ScrollReveal>
                                             <div className="relative flex justify-center space-y-10">
-                                                <div className="h-12 w-12 p-2 rounded-full border-2 border-dashed border-[#1D2939] flex items-center justify-center">
+                                                <div className="h-12 w-12 p-2 rounded-full border-2 border-dashed border-border-subtle flex items-center justify-center">
                                                     <div className={clsx("h-full w-full rounded-full", round[colorClass as keyof RoundSchema])}></div>
                                                 </div>
                                                 {index !== experiences.length - 1 && (
-                                                    <div className="absolute border-r-2 border-dashed border-[#1D2939] h-full top-12"></div>
+                                                    <div className="absolute border-r-2 border-dashed border-border-subtle h-full top-12"></div>
                                                 )}
                                             </div>
                                             <ScrollReveal variants={slideInVariant('right')} className="flex flex-col space-y-3 w-1/2">
                                                 <div className="flex space-x-2">
-                                                    <h3 className="text-4xl font-bold text-[#344054]">{item.position}</h3>
-                                                    <p className="text-xl text-gray-400 pt-3">{item.status && `(${item.status})`}</p>
+                                                    <h3 className="text-4xl font-bold text-text-primary">{item.position}</h3>
+                                                    <p className="text-xl text-text-muted pt-3">{item.status && `(${item.status})`}</p>
                                                 </div>
-                                                <p className="text-xl text-gray-400 min-h-[140px] max-h-[140px]">{item.description}</p>
+                                                <p className="text-xl text-text-muted min-h-[140px] max-h-[140px]">{item.description}</p>
                                             </ScrollReveal>
                                         </div>
                                     );
@@ -142,9 +142,9 @@ export const ExperienceSection: React.FC = () => {
                         <Condition If={hasMore && !isExpanded && !isLoading}>
                             <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center justify-end pt-32"
                                 style={{
-                                    background: 'linear-gradient(to bottom, transparent, white 60%)'
+                                    background: 'linear-gradient(to bottom, transparent, var(--bg-base) 60%)'
                                 }}>
-                                    <button className="mb-4 flex items-center gap-2 px-6 py-3 rounded-full border border-[#1D2939] bg-white text-[#1D2939] font-semibold shadow-md hover:bg-gray-50 transition-all"
+                                    <button className="mb-4 flex items-center gap-2 px-6 py-3 rounded-full border border-border-subtle bg-bg-base text-text-primary font-semibold shadow-md hover:bg-bg-surface-hover transition-all"
                                         onClick={() => setIsExpanded(true)}>
                                             Show more
                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -158,7 +158,7 @@ export const ExperienceSection: React.FC = () => {
                     {/* Button collapse — muncul setelah expand */}
                     <Condition If={hasMore && isExpanded && !isLoading}>
                         <div className="flex justify-center mt-8">
-                            <button className="flex items-center gap-2 px-6 py-3 rounded-full border border-[#1D2939] bg-white text-[#1D2939] font-semibold shadow-md hover:bg-gray-50 transition-all"
+                            <button className="flex items-center gap-2 px-6 py-3 rounded-full border border-border-subtle bg-bg-base text-text-primary font-semibold shadow-md hover:bg-bg-surface-hover transition-all"
                                 onClick={() => setIsExpanded(false)}>
                                     Show less
                                     <svg

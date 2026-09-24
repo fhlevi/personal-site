@@ -2,6 +2,40 @@
 @import "tailwindcss";
 @import "./utilities.css";
 
+@theme {
+    --color-bg-base: var(--bg-base);
+    --color-bg-surface: var(--bg-surface);
+    --color-bg-surface-hover: var(--bg-surface-hover);
+    --color-text-primary: var(--text-primary);
+    --color-text-muted: var(--text-muted);
+    --color-border-subtle: var(--border-subtle);
+}
+
+:root {
+    --bg-base: #ffffff;
+    --bg-surface: #F2F4F7;
+    --bg-surface-hover: #e5e7eb;
+    --text-primary: #111827;
+    --text-muted: #6b7280;
+    --border-subtle: #e5e7eb;
+}
+
+html.dark {
+    --bg-base: #0a0a0a;
+    --bg-surface: #171717;
+    --bg-surface-hover: #262626;
+    --text-primary: #f9fafb;
+    --text-muted: #9ca3af;
+    --border-subtle: #262626;
+}
+
+body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
 @font-face {
     font-family: 'Lufga';
     src: url('https://fonts.cdnfonts.com/s/67775/LufgaRegular.woff') format('woff');

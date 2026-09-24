@@ -1,3 +1,4 @@
+
 .blurred-circle {
     background-color: #fbe2e3;
     position: absolute;
@@ -8,6 +9,7 @@
     width: 31.25rem;
     border-radius: 9999px;
     filter: blur(10rem);
+    transition: background-color 0.5s ease;
 }
 
 @media (min-width: 640px) {
@@ -16,11 +18,9 @@
     }
 }
 
-/* @media (prefers-color-scheme: dark) {
-    .blurred-circle {
-        background-color: #946263;
-    }
-} */
+html.dark .blurred-circle {
+    background-color: #5a2223;
+}
 
 .decorative-circle {
     background-color: #dbd7fb;
@@ -32,6 +32,7 @@
     width: 50rem;
     border-radius: 9999px;
     filter: blur(10rem);
+    transition: background-color 0.5s ease;
 }
 
 @media (min-width: 640px) {
@@ -64,8 +65,6 @@
     }
 }
 
-/* @media (prefers-color-scheme: dark) {
-    .decorative-circle {
-        background-color: #676394;
-    }
-} */
+html.dark .decorative-circle {
+    background-color: #2a255a;
+}
