@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://faisalfahlevi.my.id/sitemap.xml

@@ -11,7 +11,7 @@ export const FooterNavigation = () => {
                 <Link to="experience" offset={-100} className="cursor-pointer">
                     Experience
                 </Link>
-                <Link to="about-us" offset={-100} className="cursor-pointer">
+                <Link to="overview" offset={-100} className="cursor-pointer">
                     About
                 </Link>
                 <Link to="projects" offset={-100} className="cursor-pointer">

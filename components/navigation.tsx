@@ -1,15 +1,17 @@
-import '@styles/navigation.css';
-import { NavigationItems } from './navigation-items';
-import React from 'react';
-import { useObfuscatedImage } from '@hook/use-obfuscate-image';
-import { useDevice } from '@hook/use-device';
+import "@styles/navigation.css";
+import { NavigationItems } from "./navigation-items";
+import React from "react";
+import { useObfuscatedImage } from "@hook/use-obfuscate-image";
+import { useDevice } from "@hook/use-device";
 
 export const Navigation = () => {
     const { devices } = useDevice();
-    const [menuActive, setMenuActive] = React.useState<string>('banner');
-    const blobUrl = useObfuscatedImage('/assets/images/profiles-picture.jpg');
+    const [menuActive, setMenuActive] = React.useState<string>("banner");
+    const blobUrl = useObfuscatedImage("/assets/images/profiles-picture.jpeg");
 
-    const handleSetActive = (to: string) => { setMenuActive(to) };;
+    const handleSetActive = (to: string) => {
+        setMenuActive(to);
+    };
 
     return (
         <header className="relative flex items-center justify-center w-full sticky top-0 z-50">
@@ -19,32 +21,29 @@ export const Navigation = () => {
                 </div>
             ) : (
                 <nav className="text-white mt-0 sm:mt-10 h-14 sm:h-20 nav min-w-[calc(var(--container-xs) * 3)] rounded-[var(--rounded-50)]">
-                    <ul className="relative hidden sm:flex justify-between items-center p-2.5 h-full">
-                        <NavigationItems 
+                    <div className="relative hidden sm:flex justify-between items-center p-2.5 h-full">
+                        <NavigationItems
                             name="Home"
                             to="banner"
                             offset={-100}
                             menuActive={menuActive}
                             onSetActive={handleSetActive}
                         />
-                        <NavigationItems 
+                        <NavigationItems
                             name="Experience"
                             to="experience"
                             offset={-100}
                             menuActive={menuActive}
                             onSetActive={handleSetActive}
                         />
-                        <NavigationItems 
+                        <NavigationItems
                             name="About"
-                            to="about-us"
+                            to="overview"
                             offset={-100}
                             menuActive={menuActive}
                             onSetActive={handleSetActive}
                         />
-                        <NavigationItems
-                            image={blobUrl}
-                            to="#"
-                        />
+                        <NavigationItems image={blobUrl} to="#" />
                         <NavigationItems
                             name="Projects"
                             to="projects"
@@ -66,7 +65,7 @@ export const Navigation = () => {
                             menuActive={menuActive}
                             onSetActive={handleSetActive}
                         />
-                    </ul>
+                    </div>
                 </nav>
             )}
         </header>

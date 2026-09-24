@@ -1,4 +1,3 @@
-import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import '@styles/index.css';
 import App from './pages/App.tsx';
@@ -17,11 +16,9 @@ const queryClient = new QueryClient({
 });
 
 createRoot(Root!).render(
-  <StrictMode>
-    <HeadProvider>
-      <QueryClientProvider client={queryClient}>
-        <App />
-      </QueryClientProvider>
-    </HeadProvider>
-  </StrictMode>,
+  <HeadProvider>
+    <QueryClientProvider client={queryClient}>
+      <App />
+    </QueryClientProvider>
+  </HeadProvider>,
 )

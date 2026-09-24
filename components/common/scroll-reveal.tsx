@@ -43,7 +43,7 @@ export const staggerContainer: Variants = {
     opacity: 1,
     transition: {
       staggerChildren: 0.15,
-      delayChildren: 0.02,
+      delayChildren: 0.1,
     }
   }
 };
@@ -65,7 +65,7 @@ export const ScrollReveal = ({
       variants={variants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.2 }} 
+      viewport={{ once: true, amount: 0.2 }} 
       className={className}
     >
       {children}

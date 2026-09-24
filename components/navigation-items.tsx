@@ -12,7 +12,7 @@ export const NavigationItems: React.FC<NavigationItemsProps> = ({
     menuActive = ''
 }) => {
     const [previousActiveMenu, setPreviousActiveMenu] = React.useState<string>('');
-    const menuOrder = ["banner", "experience", "about-us", "projects", "skills", "contact"];
+    const menuOrder = ["banner", "experience", "overview", "projects", "skills", "contact"];
 
     React.useEffect(() => {
         if (menuActive && menuActive !== previousActiveMenu) {
@@ -32,7 +32,7 @@ export const NavigationItems: React.FC<NavigationItemsProps> = ({
     };
 
     return (
-        <li className="relative h-full nav-item cursor-pointer">
+         <div className="relative h-full nav-item cursor-pointer">
             <Link 
             className="z-10"
             to={to}
@@ -56,6 +56,6 @@ export const NavigationItems: React.FC<NavigationItemsProps> = ({
                     className="absolute inset-0 active-item z-0"
                 ></motion.div>
             )}
-        </li>
+        </div>
     );
 };

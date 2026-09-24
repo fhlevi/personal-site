@@ -13,7 +13,7 @@ export const AboutUsSection: React.FC = () => {
     const { description, stats } = aboutUs;
 
     return (
-        <section id="about-us" className="relative pt-14 pb-10">
+        <section id="overview" className="relative pt-14 pb-10">
             <Container>
                 <div className="container items-center px-8 py-8 md:py-[7.63rem] md:px-[4.44rem] bg-[#F2F4F7] min-h-44 rounded-[3.13rem]">
                     <div className="space-y-[2.94rem]">

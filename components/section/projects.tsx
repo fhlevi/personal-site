@@ -38,8 +38,8 @@ export const ProjectsSection = () => {
                             variants={staggerContainer}
                             isStaggerContainer
                             className={clsx(
-                                "grid md:grid-cols-2 gap-6 overflow-hidden transition-all duration-500", {
-                                    "max-h-[760px]": (!isExpanded && hasMore)
+                                "grid md:grid-cols-2 gap-6 transition-all duration-500 p-8 -m-8", {
+                                    "max-h-[820px] overflow-hidden": (!isExpanded && hasMore)
                                 }
                             )}
                         >

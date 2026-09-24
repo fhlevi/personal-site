@@ -12,11 +12,11 @@ export const NAVIGATE: NavigationListSchema = [
     },
     {
         name: "About",
-        href: "about-us",
+        href: "overview",
     },
     {
         name: "Profile",
-        image: "/assets/images/profiles-picture.jpg",
+        image: "/assets/images/profiles-picture.jpeg",
         href: ""
     },
     {
