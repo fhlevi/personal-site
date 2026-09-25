@@ -1,78 +1,43 @@
-import "@styles/navigation.css";
-import { NavigationItems } from "./navigation-items";
-import React from "react";
-import { motion } from "framer-motion";
-import { useObfuscatedImage } from "@hook/use-obfuscate-image";
-import { useDevice } from "@hook/use-device";
-import { ThemeToggle } from "@components/common/theme-toggle";
+import React, { useState, useEffect } from 'react';
+import { NavigationItems } from './navigation-items';
+import { useTheme } from '@hook/use-theme';
 
-export const Navigation = () => {
-    const { devices } = useDevice();
-    const [menuActive, setMenuActive] = React.useState<string>("banner");
-    const blobUrl = useObfuscatedImage("/assets/images/profiles-picture.jpeg");
+export const Navigation: React.FC = () => {
+    const { theme, toggleTheme } = useTheme();
+    const [toggle, setToggle] = useState<boolean>(false);
+    const [scrollHeader, setScrollHeader] = useState<boolean>(false);
 
-    const handleSetActive = (to: string) => {
-        setMenuActive(to);
-    };
+    useEffect(() => {
+        const handleScroll = (): void => {
+            if (window.scrollY >= 80) setScrollHeader(true);
+            else setScrollHeader(false);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     return (
-        <header className="relative flex items-center justify-center w-full sticky top-0 z-50">
-            {devices.mobile ? (
-                <div className="px-5 flex items-center justify-start h-14 text-md text-white font-semibold nav w-full">
-                    Faisal Fahlevi
+        <header className={`header ${scrollHeader ? "scroll-header" : ""}`} id="header">
+            <nav className="nav container">
+                <a href="#" className="nav__logo">Faisal Fahlevi</a>
+                <div className={toggle ? "nav__menu show-menu" : "nav__menu"}>
+                    <ul className="nav__list grid">
+                        <NavigationItems name="Home" to="home" icon="uil-estate" />
+                        <NavigationItems name="About" to="about" icon="uil-user" />
+                        <NavigationItems name="Skills" to="skills" icon="uil-file-alt" />
+                        <NavigationItems name="Experience" to="experience" icon="uil-briefcase-alt" />
+                        <NavigationItems name="Projects" to="projects" icon="uil-scenery" />
+                        <NavigationItems name="Contact" to="contact" icon="uil-message" />
+                    </ul>
+                    <i className="uil uil-times nav__close" onClick={() => setToggle(!toggle)}></i>
                 </div>
-            ) : (
-                <motion.nav layout transition={{ type: "spring", bounce: 0.2, duration: 0.8 }} className=" mt-0 sm:mt-10 h-14 sm:h-20 nav w-max mx-auto rounded-[var(--rounded-50)]">
-                    <div className="relative hidden sm:flex justify-center items-center p-2.5 h-full gap-2">
-                        <NavigationItems
-                            name="Home"
-                            to="banner"
-                            offset={-100}
-                            menuActive={menuActive}
-                            onSetActive={handleSetActive}
-                        />
-                        <NavigationItems
-                            name="Experience"
-                            to="experience"
-                            offset={-100}
-                            menuActive={menuActive}
-                            onSetActive={handleSetActive}
-                        />
-                        <NavigationItems
-                            name="About"
-                            to="overview"
-                            offset={-100}
-                            menuActive={menuActive}
-                            onSetActive={handleSetActive}
-                        />
-                        <NavigationItems image={blobUrl} to="#" />
-                        <NavigationItems
-                            name="Projects"
-                            to="projects"
-                            offset={-100}
-                            menuActive={menuActive}
-                            onSetActive={handleSetActive}
-                        />
-                        <NavigationItems
-                            name="Skills"
-                            to="skills"
-                            offset={-100}
-                            menuActive={menuActive}
-                            onSetActive={handleSetActive}
-                        />
-                        <NavigationItems
-                            name="Contact"
-                            to="contact"
-                            offset={-100}
-                            menuActive={menuActive}
-                            onSetActive={handleSetActive}
-                        />
-                        <div className="flex items-center pl-2 border-l border-white/20 ml-2">
-                            <ThemeToggle />
-                        </div>
+                <div className="nav__btns">
+                    <i className={`uil ${theme === 'dark' ? 'uil-sun' : 'uil-moon'} change-theme`} onClick={toggleTheme} id="theme-button"></i>
+                    <div className="nav__toggle" onClick={() => setToggle(!toggle)}>
+                        <i className="uil uil-apps"></i>
                     </div>
-                </motion.nav>
-            )}
+                </div>
+            </nav>
         </header>
     );
 };

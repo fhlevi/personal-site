@@ -1,49 +1,22 @@
-import { ExperienceListSchema, SocialNetworkListSchema } from './types';
-import { LinkProps } from "react-scroll";
-
-export interface NavigationItemsProps extends LinkProps {
-    name?: string; 
-    image?: string; 
-    menuActive?: string;
+export interface ISkill {
+    id: string;
+    skill: string;
 }
 
-export interface SocialNetworkProps {
-    socialList: SocialNetworkListSchema;
-    onOpenLink: (link: string) => void;
-}
-
-export interface ProjectDescriptionProps {
-    name: string;
+export interface IExperience {
+    id: string;
+    company: string;
+    position: string;
+    status: string;
+    date: string;
     description: string;
 }
 
-export interface ProjectCardProps extends ProjectDescriptionProps {
-    image: string;
-    tags?: string[];
-    link?: string;
-}
-
-export interface ExperienceSectionProps {
-    experience: ExperienceListSchema;
-}
-
-export interface ButtonBannerProps {
+export interface IProject {
+    id: string;
     name: string;
-    children: React.ReactNode;
-    onSetActive: (name: string) => void;
-    buttonActive: string;
-    onClick?: () => void;
-    to?: string;
-}
-
-export interface UseReadMoreOptions {
-    maxLength?: number;
-    suffix?: string;
-}
-
-export interface UseReadMoreReturn {
-    displayedText: string;
-    isExpanded: boolean;
-    isLongText: boolean;
-    toggleExpand: () => void;
+    description: string;
+    image: string;
+    link: string;
+    tags: string[] | null;
 }

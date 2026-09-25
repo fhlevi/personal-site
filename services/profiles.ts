@@ -1,17 +1,17 @@
-import { HTTPClientNonAuth } from './../utils/http';
+import { HTTPClientNonAuth } from '../utils/http';
+import { ISkill, IExperience, IProject } from '../modules/interfaces';
 
-const prefixExperience = '/experience';
-const prefixSkills = '/skill';
-const prefixProjects = '/project';
-
-export const getExperience = () => {
-    return HTTPClientNonAuth().get(prefixExperience);
+export const getSkills = async (): Promise<ISkill[]> => {
+    const response = await HTTPClientNonAuth().get<ISkill[]>('/skill');
+    return response.data;
 };
 
-export const getProjects = () => {
-    return HTTPClientNonAuth().get(prefixProjects);
+export const getExperience = async (): Promise<IExperience[]> => {
+    const response = await HTTPClientNonAuth().get<IExperience[]>('/experience');
+    return response.data;
 };
 
-export const getSkills = () => {
-    return HTTPClientNonAuth().get(prefixSkills);
+export const getProjects = async (): Promise<IProject[]> => {
+    const response = await HTTPClientNonAuth().get<IProject[]>('/project');
+    return response.data;
 };

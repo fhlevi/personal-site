@@ -1,49 +1,27 @@
-import { Container } from "../common/container";
-import { SocialNetwork } from "../social-network";
-import { FooterNavigation } from "./footer-navigation";
-import { FooterContact } from "./footer-contact";
-import { FooterSubscription } from "./footer-subcription";
-import { openLink } from '@utils/open-link';
-import { useDevice } from '@hook/use-device';
-import { SOCIAL_NETWORK as socialNetworks } from "@constants/networking";
+import React from 'react';
 
-export const Footer = () => {
-    const { devices } = useDevice();
-
+export const FooterMain: React.FC = () => {
     return (
-        <footer className="bg-bg-surface w-full min-h-32 rounded-t-3xl">
-            <Container>
-                <div className="pt-6">
-                    <div className="flex flex-row items-center justify-between pt-12 pb-16 border-b-2 border-border-subtle">
-                        <div className="text-4xl md:text-6xl font-semibold text-text-primary">Lets Connect there</div>
+        <footer className="footer">
+            <div className="footer__bg">
+                <div className="footer__container container grid">
+                    <div>
+                        <h1 className="footer__title">Faisal</h1>
+                        <span className="footer__subtitle">Frontend Developer</span>
                     </div>
-                    {devices.mobile ? (
-                        <div className="py-14 flex flex-col items-start justify-between">
-                            <div className="w-auto flex flex-col space-y-7 mb-7 lg:mb-0">
-                                <p className="text-xl text-text-primary">
-                                    Faisal Fahlevi expertise in web development and attention to detail have significantly enhanced our platform's performance and user experience. Highly recommended
-                                </p>
-                            </div>
-                            <FooterNavigation />
-                            <FooterContact />
-                            <FooterSubscription />
-                            <SocialNetwork socialList={socialNetworks} onOpenLink={openLink} />
-                        </div>
-                    ) : (
-                        <div className="py-14 flex flex-col md:flex-row items-start justify-between">
-                            <div className="w-[calc(var(--container-2xl)-37px)] pt-[calc(var(--spacing)*20)] flex flex-col space-y-7">
-                                <p className="text-xl text-text-primary">
-                                    Faisal Fahlevi expertise in web development and attention to detail have significantly enhanced our platform's performance and user experience. Highly recommended
-                                </p>
-                                <SocialNetwork socialList={socialNetworks} onOpenLink={openLink} />
-                            </div>
-                            <FooterNavigation />
-                            <FooterContact />
-                            <FooterSubscription />
-                        </div>
-                    )}
+                    <ul className="footer__links">
+                        <li><a href="#experience" className="footer__link">Experiences</a></li>
+                        <li><a href="#portfolio" className="footer__link">Projects</a></li>
+                        <li><a href="#contact" className="footer__link">Contact Me</a></li>
+                    </ul>
+                    <div className="footer__socials">
+                        <a href="https://linkedin.com/in/fhlevi" target="_blank" rel="noreferrer" className="footer__social"><i className="uil uil-linkedin"></i></a>
+                        <a href="https://github.com/fhlevi" target="_blank" rel="noreferrer" className="footer__social"><i className="uil uil-github"></i></a>
+                        <a href="#" target="_blank" rel="noreferrer" className="footer__social"><i className="uil uil-instagram-alt"></i></a>
+                    </div>
                 </div>
-            </Container>
+                <p className="footer__copy">&#169; Faisal Fahlevi. All right reserved</p>
+            </div>
         </footer>
     );
 };

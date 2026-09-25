@@ -1,101 +1,96 @@
-import { useState } from "react";
-import clsx from "clsx";
-import { Container } from "@components/common/container";
-import { ProjectCard } from "@components/project/project-card";
+import React from 'react';
 import { useQuery } from 'react-query';
-import { getProjects } from "@services/profiles";
-import type { ProjectListSchema } from "modules/types";
-import { ProjectCardShimmer } from "@components/project/project-shimmer";
-import { Condition } from "@components/abstracts/condition";
-import { ScrollReveal, staggerContainer, fadeUpVariant } from "@components/common/scroll-reveal";
-import { motion } from "framer-motion";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import { EffectCoverflow, Mousewheel } from 'swiper/modules';
+import { getProjects } from '../../services/profiles';
+import { IProject } from '../../modules/interfaces';
 
-const INITIAL_SHOW = 4; // tampilkan 4 project pertama (2 baris di desktop)
+interface IProjectDisplay {
+    title: string;
+    description: string;
+    link: string;
+    linkText: string;
+    img: string;
+}
 
-export const ProjectsSection = () => {
-    const [isExpanded, setIsExpanded] = useState(false);
+export const Projects: React.FC = () => {
+    const { data: apiProjectsData, isLoading } = useQuery<IProject[], Error>('projects', getProjects);
 
-    const queryProjects = useQuery(['projects-list'], getProjects);
-    const projects = queryProjects.data?.data as ProjectListSchema || [];
-    const isLoading = queryProjects.isLoading;
+    const defaultProjectsData: IProjectDisplay[] = [
+        {
+            title: "Currency Exchange Application",
+            description: "Currency Exchange mobile application, developed using the powerful SwiftUI framework...",
+            link: "https://github.com/yagizhitit/CurrencyExchangeApp",
+            linkText: "Show on GitHub",
+            img: "/assets/images/profiles-picture.jpeg"
+        }
+    ];
 
-    const hasMore = projects.length > INITIAL_SHOW;
+    const mappedProjects: IProjectDisplay[] = apiProjectsData 
+        ? apiProjectsData.map((item: IProject) => ({
+            title: item.name,
+            description: item.description,
+            link: item.link || '#',
+            linkText: item.link ? 'View Project' : 'Demo',
+            img: item.image ? `/assets/images/projects/${item.image}` : "/assets/images/profiles-picture.jpeg"
+        }))
+        : defaultProjectsData;
+
+    const finalProjects: IProjectDisplay[] = mappedProjects.length > 0 && mappedProjects.length <= 3 
+        ? [...mappedProjects, ...mappedProjects] 
+        : mappedProjects;
 
     return (
-        <section id="projects" className="relative py-14">
-            <Container>
-                <div className="container">
-                    <ScrollReveal className="flex flex-row items-center justify-between">
-                        <p className="text-5xl md:text-6xl font-semibold max-w-[643px] leading-16 md:leading-20">
-                            Lets have a look at my&nbsp;
-                            <span className="text-orange-400">Projects</span>
-                        </p>
-                    </ScrollReveal>
-
-                    {/* Grid Wrapper */}
-                    <div className="relative mt-[50px]">
-                        <ScrollReveal
-                            variants={staggerContainer}
-                            isStaggerContainer
-                            className={clsx(
-                                "grid md:grid-cols-2 gap-6 transition-all duration-500 p-8 -m-8", {
-                                    "max-h-[820px] overflow-hidden": (!isExpanded && hasMore)
-                                }
-                            )}
-                        >
-
-                            <Condition If={isLoading}>
-                                {Array.from({ length: 4 }).map((_, index) => <ProjectCardShimmer key={index} variant={index + 1} />)}
-                            </Condition>
-
-                            <Condition Else>
-                                {projects.map((project, index) => (
-                                    <motion.div key={index} variants={fadeUpVariant}>
-                                        <ProjectCard
-                                            name={project.name}
-                                            description={project.description}
-                                            image={project.image}
-                                            tags={project.tags}
-                                            link={project.link}
-                                        />
-                                    </motion.div>
-                                ))}
-                            </Condition>
-                        </ScrollReveal>
-
-                        {/* Gradient Overlay + Show More Button */}
-                        <Condition If={hasMore && !isExpanded && !isLoading}>
-                                <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center justify-end pt-32 z-10"
-                                style={{
-                                    background: 'linear-gradient(to bottom, transparent, var(--bg-base) 60%)'
-                                }}>
-                                    <button className="mb-4 flex items-center gap-2 px-6 py-3 rounded-full border border-border-subtle bg-bg-base text-text-primary font-semibold shadow-md hover:bg-bg-surface-hover transition-all"
-                                    onClick={() => setIsExpanded(true)}>
-                                            Show more
-                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                                            </svg>
-                                    </button>
+        <section className="portfolio section" id="portfolio">
+            <h2 className="section__title">Projects</h2>
+            <span className="section__subtitle">{isLoading ? 'Loading...' : 'Most recent work'}</span>
+            
+            <div className="portfolio__container" style={{ position: 'relative', width: '100%' }}>
+                <Swiper
+                    effect={'coverflow'}
+                    grabCursor={true}
+                    centeredSlides={true}
+                    slidesPerView={'auto'}
+                    initialSlide={0}
+                    loop={true}
+                    spaceBetween={0} 
+                    mousewheel={true}
+                    coverflowEffect={{
+                        rotate: 0,
+                        stretch: 150, 
+                        depth: 200, 
+                        modifier: 1.5, 
+                        slideShadows: false,
+                    }}
+                    breakpoints={{
+                        1024: { spaceBetween: 0 },
+                        768: { spaceBetween: 0 },
+                        0: { spaceBetween: 0 }
+                    }}
+                    modules={[EffectCoverflow, Mousewheel]}
+                    style={{ overflow: 'visible', paddingBottom: '3rem' }}
+                >
+                    {finalProjects.map((project: IProjectDisplay, index: number) => (
+                        <SwiperSlide className="portfolio__slide_custom" key={index}>
+                            <div className="portfolio__content">
+                                <img src={project.img} alt="Project" className="portfolio__img" style={{ objectFit: 'cover' }} />
+                                <div className="portfolio__data">
+                                    <h3 className="portfolio__title">{project.title}</h3>
+                                    <p className="portfolio__description">
+                                        {project.description}
+                                    </p>
+                                    <a href={project.link} className="button button--flex button--small portfolio__button" target={project.link !== '#' ? "_blank" : undefined} rel="noreferrer">
+                                        {project.linkText}
+                                        <i className="uil uil-arrow-right button__icon"></i>
+                                    </a>
                                 </div>
-                        </Condition>
-                    </div>
-
-                    {/* Show Less Button */}
-                    <Condition If={hasMore && isExpanded && !isLoading}>
-                        <div className="flex justify-center mt-8">
-                            <button
-                                onClick={() => setIsExpanded(false)}
-                                className="flex items-center gap-2 px-6 py-3 rounded-full border border-border-subtle bg-bg-base text-text-primary font-semibold shadow-md hover:bg-bg-surface-hover transition-all"
-                            >
-                                Show less
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                                </svg>
-                            </button>
-                        </div>
-                    </Condition>
-                </div>
-            </Container>
+                            </div>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+            </div>
         </section>
     );
-}
+};

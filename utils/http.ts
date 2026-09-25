@@ -1,14 +1,10 @@
-import axios from "axios"
-import Service from '@utils/service';
+import axios, { AxiosInstance } from 'axios';
 
-export const HTTPClientNonAuth = () => {
-    const client = axios.create({
-        baseURL: Service.API,
+export const HTTPClientNonAuth = (): AxiosInstance => {
+    return axios.create({
+        baseURL: import.meta.env.VITE_PUBLIC_API_URL,
         headers: {
-            Accept: "application/json",
+            'Content-Type': 'application/json',
         },
-        timeout: 120000,
-    })
-
-    return client
-}
+    });
+};

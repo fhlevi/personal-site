@@ -1,65 +1,156 @@
-/* @import url('https://fonts.cdnfonts.com/css/lufga'); */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 @import "tailwindcss";
 @import "./utilities.css";
-
-@theme {
-    --color-bg-base: var(--bg-base);
-    --color-bg-surface: var(--bg-surface);
-    --color-bg-surface-hover: var(--bg-surface-hover);
-    --color-text-primary: var(--text-primary);
-    --color-text-muted: var(--text-muted);
-    --color-border-subtle: var(--border-subtle);
-}
+@import "./navigation.css";
+@import "./yagizhitit.css";
 
 :root {
-    --bg-base: #ffffff;
-    --bg-surface: #F2F4F7;
-    --bg-surface-hover: #e5e7eb;
-    --text-primary: #111827;
-    --text-muted: #6b7280;
-    --border-subtle: #e5e7eb;
+  --header-height: 3rem;
+  --hue-color: 23;
+  --first-color: hsl(var(--hue-color), 95%, 52%);
+  --first-color-second: hsl(var(--hue-color), 69%, 61%);
+  --first-color-alt: hsl(var(--hue-color), 57%, 53%);
+  --first-color-lighter: hsl(var(--hue-color), 92%, 85%);
+  --title-color: hsl(var(--hue-color), 8%, 15%);
+  --text-color: hsl(var(--hue-color), 8%, 45%);
+  --text-color-light: hsl(var(--hue-color), 8%, 65%);
+  --input-color: hsl(var(--hue-color), 70%, 96%);
+  --body-color: hsl(var(--hue-color), 60%, 99%);
+  --container-color: #fff;
+  --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
+  --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%);
+
+  /* Font and typography */
+  --body-font: 'Poppins', sans-serif;
+  --big-font-size: 2rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1.125rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --smaller-font-size: 0.75rem;
+
+  /* Font weight */
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  /* Margines Bottom */
+  --mb-0-25: 0.25rem;
+  --mb-0-5: 0.5rem;
+  --mb-0-75: 0.75rem;
+  --mb-1: 1rem;
+  --mb-1-5: 1.5rem;
+  --mb-2: 2rem;
+  --mb-2-5: 2.5rem;
+  --mb-3: 3rem;
+
+  /* z index */
+  --z-tooltip: 10;
+  --z-fixed: 100;
+  --z-modal: 1000;
+}
+
+@media screen and (min-width: 968px) {
+  :root {
+    --big-font-size: 3rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.813rem;
+  }
 }
 
 html.dark {
-    --bg-base: #0a0a0a;
-    --bg-surface: #171717;
-    --bg-surface-hover: #262626;
-    --text-primary: #f9fafb;
-    --text-muted: #9ca3af;
-    --border-subtle: #262626;
+  --first-color-second: hsl(var(--hue-color), 30%, 8%);
+  --title-color: hsl(var(--hue-color), 8%, 95%);
+  --text-color: hsl(var(--hue-color), 8%, 75%);
+  --input-color: hsl(var(--hue-color), 29%, 16%);
+  --body-color: hsl(var(--hue-color), 28%, 12%);
+  --container-color: hsl(var(--hue-color), 29%, 16%);
+  --scroll-bar-color: hsl(var(--hue-color), 12%, 48%);
+  --scroll-thumb-color: hsl(var(--hue-color), 12%, 36%);
 }
 
-body {
-    background-color: var(--bg-base);
-    color: var(--text-primary);
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-
-@font-face {
-    font-family: 'Lufga';
-    src: url('https://fonts.cdnfonts.com/s/67775/LufgaRegular.woff') format('woff');
-    font-display: swap;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    /* background-color: rgb(17 24 39/1); */
-    font-family: 'Lufga', sans-serif;
+  margin: 0;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4 {
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 @keyframes shimmer {
-    0% {
-        background-position: -200% 0;
-    }
-    100% {
-        background-position: 200% 0;
-    }
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
 }
 
 .animate-shimmer {
     animation: shimmer 2s infinite linear;
+}
+
+/* Fix Swiper Slide Width Specificity */
+@media screen and (min-width: 1024px) {
+  .portfolio .swiper-slide {
+    width: 1000px !important;
+    height: 550px !important;
+  }
+}
+@media screen and (max-width: 1023px) {
+  .portfolio .swiper-slide {
+    width: 85% !important;
+    height: auto !important;
+  }
+}
+
+/* Force Slide Widths */
+.portfolio__slide_custom {
+  transition: transform 0.3s;
+  opacity: 0.4;
+}
+.swiper-slide-active.portfolio__slide_custom {
+  opacity: 1;
+  z-index: 10;
+}
+@media screen and (min-width: 1024px) {
+  .portfolio__slide_custom {
+    width: 1000px !important;
+    height: 550px !important;
+  }
+}
+@media screen and (max-width: 1023px) {
+  .portfolio__slide_custom {
+    width: 85% !important;
+    height: auto !important;
+  }
 }

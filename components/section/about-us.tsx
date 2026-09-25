@@ -1,55 +1,43 @@
 import React from 'react';
-import { Link } from "react-scroll";
-import { ArrowRight } from "lucide-react";
-import { Container } from "@components/common/container";
-import { useDevice } from "@hook/use-device";
-import { useReadMore } from '@hook/use-readmore';
-import { ABOUT as aboutUs } from '@constants/profiles';
+import { useObfuscatedImage } from '@hook/use-obfuscate-image';
 
-export const AboutUsSection: React.FC = () => {
-    const { devices } = useDevice();
-    const { displayedText, isLongText, toggleExpand, isExpanded } = useReadMore(aboutUs.description);
-
-    const { description, stats } = aboutUs;
-
+export const AboutUs: React.FC = () => {
+    const blobUrl: string | null = useObfuscatedImage('/assets/images/profiles-picture.jpeg');
     return (
-        <section id="overview" className="relative pt-14 pb-10">
-            <Container>
-                <div className="container items-center px-8 py-8 md:py-[7.63rem] md:px-[4.44rem] bg-bg-surface min-h-44 rounded-[3.13rem]">
-                    <div className="space-y-[2.94rem]">
-                        <div className="text-5xl md:text-6xl font-semibold">
-                            Why <span className="text-orange-400">Hire me</span>?
+        <section className="about section" id="about">
+            <h2 className="section__title">About Me</h2>
+            <span className="section__subtitle">My introduction</span>
+            
+            <div className="about__container container grid">
+                <div className="about__img-wrapper">
+                    <img src={blobUrl || ''} alt="" className="about__img-layer" />
+                </div>
+                
+                <div className="about__data">
+                    <p className="about__description">Web developer, with extensive knowledge and years of experience, working in web technologies and UI / UX design, delivering quality work.</p>
+                    
+                    <div className="about__info">
+                        <div className="about__box">
+                            <span className="about__info-title">07+</span>
+                            <span className="about__info-name">Years <br /> experience</span>
                         </div>
-                        <div className="text-[1.25rem] w-full text-text-muted">
-                            {devices.mobile ? displayedText : description}
-                            {isLongText && devices.mobile && (
-                                <span 
-                                className="text-orange-200 cursor-pointer ml-2"
-                                onClick={toggleExpand}
-                                >
-                                    {isExpanded ? 'Read Less' : 'Read More'}
-                                </span>
-                            )}
+                        <div className="about__box">
+                            <span className="about__info-title">10+</span>
+                            <span className="about__info-name">Completed <br /> project</span>
                         </div>
-                        {stats.length >= 1 && (
-                            <div className="flex flex-row space-x-[10px]">
-                                {stats.map((stat, index) => (
-                                    <div key={index} className="space-y-[10px] w-full">
-                                        <div className="text-4xl font-medium">{stat.value}</div>
-                                        <div className="text-xl text-text-muted">{stat.label}</div>
-                                    </div>
-                                ))}
-                            </div>
-                        )}
-                        <Link to="contact">
-                            <button type="button" className="px-6 py-6 md:px-12 md:py-8 flex flex-row space-x-1 hover:space-x-3 items-center justify-center border border-border-subtle rounded-4xl text-xl cursor-pointer font-bold">
-                                <p>Contact Me</p>
-                                <ArrowRight size={28} />
-                            </button>
-                        </Link>
+                        <div className="about__box">
+                            <span className="about__info-title">02+</span>
+                            <span className="about__info-name">Companies <br /> worked</span>
+                        </div>
+                    </div>
+                    
+                    <div className="about__buttons">
+                        <a href="/cv.pdf" className="button button--flex">
+                            Download CV <i className="uil uil-download-alt button__icon"></i>
+                        </a>
                     </div>
                 </div>
-            </Container>
+            </div>
         </section>
     );
 };

@@ -1,19 +1,31 @@
-import React from 'react'
-import Base from './abstracts/base';
+import React, { ReactNode, useState, useEffect } from "react";
+import { Navigation } from "./navigation";
+import { FooterMain } from "./footer/footer-main";
 
 interface MainLayoutProps {
-    children: React.ReactNode
+    children: ReactNode;
 }
 
-const MainLayout = ({ children }: MainLayoutProps) => {
+export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
+    const [showScroll, setShowScroll] = useState<boolean>(false);
+
+    useEffect(() => {
+        const handleScroll = (): void => {
+            if (window.scrollY >= 560) setShowScroll(true);
+            else setShowScroll(false);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+    
     return (
-        <main className="flex flex-col">
-            <Base />
-            <div className="blurred-circle"></div>
-            <div className="decorative-circle"></div>
-            {children}
-        </main>
-    )
-}
-
-export default MainLayout
+        <>
+            <Navigation />
+            <main className="main">{children}</main>
+            <FooterMain />
+            <a href="#" className={`scrollup ${showScroll ? "show-scroll" : ""}`} id="scroll-up">
+                <i className="uil uil-arrow-up scrollup__icon"></i>
+            </a>
+        </>
+    );
+};
