@@ -14,7 +14,7 @@ export const Skills: React.FC = () => {
 
     useEffect(() => {
         if (open) {
-            const timer: NodeJS.Timeout = setTimeout(() => setAnimate(true), 100);
+            const timer = setTimeout(() => setAnimate(true), 100);
             return () => clearTimeout(timer);
         } else {
             setAnimate(false);
