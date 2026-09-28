@@ -1,0 +1,252 @@
+/*==================== SKILLS ====================*/
+.skills__container {
+  row-gap: 0;
+}
+
+.skills__header {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--mb-2-5);
+  cursor: pointer;
+}
+
+.skills__icon,
+.skills__arrow {
+  font-size: 2rem;
+  color: var(--first-color);
+}
+
+.skills__icon {
+  margin-right: var(--mb-0-75);
+}
+
+.skills__title {
+  font-size: var(--h3-font-size);
+}
+
+.skills__subtitle {
+  font-size: var(--small-font-size);
+  color: var(--text-color-light);
+}
+
+.skills__arrow {
+  margin-left: auto;
+  transition: 0.4s;
+}
+
+.skills__list {
+  row-gap: 1.5rem;
+  padding-left: 2.7rem;
+}
+
+.skills__titles {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--mb-0-5);
+}
+
+.skills__name {
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-medium);
+}
+
+.skills__bar,
+.skills__percentage {
+  height: 5px;
+  border-radius: 0.25rem;
+}
+
+.skills__bar {
+  background-color: var(--first-color-lighter);
+}
+
+.skills__percentage {
+  display: block;
+  background-color: var(--first-color);
+}
+
+.skills__swiftui {
+  width: 85%;
+}
+
+.skills__react-native {
+  width: 70%;
+}
+
+.skills__swift {
+  width: 70%;
+}
+
+.skills__kotlin {
+  width: 75%;
+}
+
+.skills__flutter {
+  width: 80%;
+}
+
+.skills__html {
+  width: 85%;
+}
+
+.skills__css {
+  width: 65%;
+}
+
+.skills__js {
+  width: 60%;
+}
+
+.skills__python {
+  width: 65%;
+}
+
+.skills__cpp {
+  width: 55%;
+}
+
+.skills__c {
+  width: 70%;
+}
+
+.skills__java {
+  width: 50%;
+}
+
+.skills__firebase {
+  width: 70%;
+}
+
+.skills__sql {
+  width: 55%;
+}
+
+.skills__close .skills__list {
+  height: 0;
+  overflow: hidden;
+}
+
+.skills__open .skills__list {
+  height: max-content;
+  margin-bottom: var(--mb-2-5);
+}
+
+.skills__open .skills__arrow {
+  transform: rotate(-180deg);
+}
+
+/*==================== LIGHTSABER SKILL BAR ====================*/
+.skill-saber {
+  position: relative;
+  height: 30px;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.skill-saber .handle {
+  width: 70px;
+  height: 14px;
+  background-color: #bababa;
+  border-radius: 4px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 2;
+}
+
+.skill-saber .handle .tip {
+  width: 3px;
+  height: 14px;
+  background-color: #363636;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  position: absolute;
+  left: 0;
+}
+
+.skill-saber .handle .grip {
+  width: 25px;
+  height: 3px;
+  background-color: #212121;
+  position: absolute;
+  left: 4px;
+}
+
+.skill-saber .handle .grip1 {
+  top: 2px;
+}
+.skill-saber .handle .grip2 {
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.skill-saber .handle .grip3 {
+  bottom: 2px;
+}
+
+.skill-saber .handle .center {
+  width: 15px;
+  height: 14px;
+  background-color: #212121;
+  position: absolute;
+  left: 32px;
+  top: 0;
+}
+
+.skill-saber .handle .guard-tip {
+  width: 12px;
+  height: 5px;
+  background-color: #212121;
+  position: absolute;
+  top: -2px;
+  left: 55px;
+}
+
+.skill-saber .handle .guard-rectangle {
+  width: 6px;
+  height: 16px;
+  background-color: #212121;
+  position: absolute;
+  top: -1px;
+  left: 65px;
+}
+
+.skill-saber .laser-container {
+  position: absolute;
+  left: 70px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: 10px;
+  margin: auto;
+  /* background-color: var(--first-color-lighter); Removed track background */
+  border-radius: 0 5px 5px 0;
+}
+
+.skill-saber .laser {
+  height: 10px;
+  background-color: var(--first-color);
+  position: absolute;
+  left: 0; /* Starts inside container which is already offset */
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 0; /* Animated via JS */
+  border-radius: 0 5px 5px 0;
+  box-shadow: 0 0 10px var(--first-color);
+  transition: width 1.5s ease-out;
+}
+
+.skill-saber .laser .laser-glow {
+  width: 100%;
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.7);
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border-radius: 0 5px 5px 0;
+}

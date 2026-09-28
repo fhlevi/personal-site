@@ -25,16 +25,16 @@ export const Navigation: React.FC = () => {
                         <NavigationItems name="Home" to="home" icon="uil-estate" />
                         <NavigationItems name="About" to="about" icon="uil-user" />
                         <NavigationItems name="Skills" to="skills" icon="uil-file-alt" />
-                        <NavigationItems name="Experience" to="experience" icon="uil-briefcase-alt" />
-                        <NavigationItems name="Projects" to="projects" icon="uil-scenery" />
-                        <NavigationItems name="Contact" to="contact" icon="uil-message" />
+                        <NavigationItems name="Experiences" to="experience" icon="uil-briefcase-alt" />
+                        <NavigationItems name="Projects" to="portfolio" icon="uil-scenery" />
+                        <NavigationItems name="Contact Me" to="contact" icon="uil-message" />
                     </ul>
                     <i className="uil uil-times nav__close" onClick={() => setToggle(!toggle)}></i>
                 </div>
                 <div className="nav__btns">
                     <i className={`uil ${theme === 'dark' ? 'uil-sun' : 'uil-moon'} change-theme`} onClick={toggleTheme} id="theme-button"></i>
                     <div className="nav__toggle" onClick={() => setToggle(!toggle)}>
-                        <i className="uil uil-apps"></i>
+                        <i className="uil uil-list-ul"></i>
                     </div>
                 </div>
             </nav>

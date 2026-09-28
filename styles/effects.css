@@ -1,0 +1,65 @@
+/*==================== INTERACTIVE TEXT EFFECT ====================*/
+:root {
+  --lerp-0: 1;
+  --lerp-1: calc(sin(50deg));
+  --lerp-2: calc(sin(45deg));
+  --lerp-3: calc(sin(35deg));
+  --lerp-4: calc(sin(25deg));
+  --lerp-5: calc(sin(15deg));
+}
+
+.code {
+  font-size: var(--normal-font-size);
+  display: inline-flex;
+  flex-wrap: wrap;
+  color: var(--text-color-light);
+  justify-content: flex-start; /* Align left */
+  cursor: default;
+}
+
+.code:hover {
+  cursor: default;
+}
+
+.digit {
+  display: flex;
+  height: 100%;
+  padding: 0 0.05rem; /* Tighter padding */
+}
+
+.digit:focus-visible {
+  outline: none;
+}
+
+.digit span {
+  scale: calc(var(--active, 0) + 0.8); /* Less drastic scaling */
+  filter: blur(calc((1 - var(--active, 0)) * 0.2rem)); /* Less drastic blur */
+  transition: scale calc(((1 - var(--active, 0)) + 0.2) * 0.5s),
+    filter calc(((1 - var(--active, 0)) + 0.2) * 0.5s);
+  display: block;
+}
+
+/* Remove side paddings from original snippet */
+.digit:first-of-type {
+  padding-left: 0;
+}
+.digit:last-of-type {
+  padding-right: 0;
+}
+
+.digit:is(:hover, :focus-visible) {
+  --active: var(--lerp-0);
+  color: var(--first-color); /* Highlight color on hover */
+}
+.digit:is(:hover, :focus-visible) + .digit,
+.digit:has(+ .digit:is(:hover, :focus-visible)) {
+  --active: var(--lerp-1);
+}
+.digit:is(:hover, :focus-visible) + .digit + .digit,
+.digit:has(+ .digit + .digit:is(:hover, :focus-visible)) {
+  --active: var(--lerp-2);
+}
+.digit:is(:hover, :focus-visible) + .digit + .digit + .digit,
+.digit:has(+ .digit + .digit + .digit:is(:hover, :focus-visible)) {
+  --active: var(--lerp-3);
+}

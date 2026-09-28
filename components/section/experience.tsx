@@ -15,10 +15,7 @@ export const Experience: React.FC = () => {
     const { data: apiWorkData, isLoading } = useQuery<IExperience[], Error>('experience', getExperience);
 
     const educationData: IQualificationData[] = [
-        { title: "Sınav Anatolian High School", subtitle: "GPA: 94.2/100", date: "2014 - 2017" },
-        { title: "Baskent University Computer Engineer", subtitle: "GPA: 3.01/4", date: "2017 - 2022" },
-        { title: "AGH University of Science and Technology - Poland", subtitle: "Erasmus+ Programme", date: "2021 - 2021" },
-        { title: "MSc in Computing Griffith College Dublin", subtitle: "2nd Class Honours", date: "2022 - 2023" },
+        { title: "STMIK Pranata Indonesia of Information System", subtitle: "GPA: 3.23/4.00", date: "2020 - 2024" },
     ];
 
     const defaultWorkData: IQualificationData[] = [

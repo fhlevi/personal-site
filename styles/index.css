@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 @import "tailwindcss";
 @import "./utilities.css";
-@import "./navigation.css";
-@import "./yagizhitit.css";
+@import "./layout.css";
 
 :root {
   --header-height: 3rem;
@@ -84,7 +83,7 @@ html {
 }
 
 body {
-  margin: 0;
+  margin: var(--header-height) 0 0 0;
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   background-color: var(--body-color);

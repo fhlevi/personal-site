@@ -22,11 +22,11 @@ export const AboutUs: React.FC = () => {
                             <span className="about__info-name">Years <br /> experience</span>
                         </div>
                         <div className="about__box">
-                            <span className="about__info-title">10+</span>
+                            <span className="about__info-title">14+</span>
                             <span className="about__info-name">Completed <br /> project</span>
                         </div>
                         <div className="about__box">
-                            <span className="about__info-title">02+</span>
+                            <span className="about__info-title">07+</span>
                             <span className="about__info-name">Companies <br /> worked</span>
                         </div>
                     </div>
