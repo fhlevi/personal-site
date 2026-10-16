@@ -4,6 +4,7 @@ import App from './pages/App.tsx';
 import { ThemeProvider } from '@hook/use-theme';
 import { HeadProvider } from 'react-head';
 import { QueryClient, QueryClientProvider } from 'react-query'
+import { injectSpeedInsights } from '@vercel/speed-insights'
 
 const Root = document.getElementById('root') as HTMLElement;
 
@@ -15,6 +16,8 @@ const queryClient = new QueryClient({
     },
   },
 });
+
+injectSpeedInsights();
 
 createRoot(Root!).render(
   <HeadProvider>
